@@ -1,0 +1,27 @@
+{
+  "name": "creatorland",
+  "owner": {
+    "name": "Creatorland",
+    "email": "brian@creatorland.com"
+  },
+  "metadata": {
+    "description": "Creatorland plugins — the Creatorland Data MCP connection plus the companion skill catalog for agency and brand influencer-marketing workflows.",
+    "version": "0.1.0"
+  },
+  "plugins": [
+    {
+      "name": "creatorland-data",
+      "source": "./plugins/creatorland-data",
+      "description": "Creatorland Data MCP + companion skills: creator discovery, shortlists from briefs or call transcripts, fair-price negotiation memos, rate benchmarking. One install wires the MCP connection and the full workflow catalog.",
+      "version": "0.1.0",
+      "author": { "name": "Creatorland" }
+    },
+    {
+      "name": "creatorland-internal",
+      "source": "./plugins/creatorland-internal",
+      "description": "INTERNAL Creatorland team plugin — sales demo choreography and CS tooling on top of the Data MCP. Not for customer distribution.",
+      "version": "0.1.0",
+      "author": { "name": "Creatorland" }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "creatorland-data",
+  "version": "0.1.0",
+  "description": "Creatorland Data MCP + companion skills — creator discovery, brief/transcript-to-shortlist, fair-price negotiation, rate benchmarking for influencer-marketing teams.",
+  "author": { "name": "Creatorland", "email": "brian@creatorland.com" },
+  "homepage": "https://mcp.creatorland.com",
+  "keywords": ["creators", "influencer-marketing", "casting", "rate-benchmarking", "creatorland"],
+  "mcpServers": {
+    "creatorland-data": {
+      "type": "http",
+      "url": "https://data-mcp.creatorland.com/mcp"
+    }
+  }
+}
