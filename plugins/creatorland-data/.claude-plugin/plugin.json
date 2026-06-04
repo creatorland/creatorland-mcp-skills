@@ -8,7 +8,7 @@
   "mcpServers": {
     "creatorland-data": {
       "type": "http",
-      "url": "https://data-mcp.creatorland.com/mcp"
+      "url": "https://mcp-server-609509006565.us-central1.run.app/mcp"
     }
   }
 }
