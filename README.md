@@ -5,7 +5,7 @@ Plugins for [Claude Code](https://docs.claude.com/en/docs/claude-code) and Claud
 ## Install (customers)
 
 ```
-/plugin marketplace add creatorland/claude-plugins
+/plugin marketplace add bmfla/claude-plugins
 /plugin install creatorland-data@creatorland
 ```
 
@@ -23,8 +23,6 @@ Then try: `"run the onboarding tour"` or paste a campaign brief and say `"build 
 | fair-price-brief | "is this quote fair?" | one-page negotiation memo vs market p25/median/p75 |
 | one-number-rate | "what should I pay for an IG reel in beauty?" | one number + band + provenance |
 | onboarding-tour | "run the onboarding tour" | guided first run of every tool |
-
-`creatorland-internal` is for the Creatorland team only.
 
 ## Versioning
 
