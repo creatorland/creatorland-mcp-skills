@@ -49,7 +49,7 @@ Thin slices come back **refused or broadened** — see Refusal Recovery.
 
 Pro = $199/mo, 5,000 credits. Free tier = discovery only, small grant.
 
-## The seven conventions
+## The nine conventions
 
 1. **Provenance-first output.** Every aggregate you emit is a citation-ready
    block: the stat + the provenance line the tool returned + the recency
@@ -70,7 +70,21 @@ Pro = $199/mo, 5,000 credits. Free tier = discovery only, small grant.
    a run will exceed ~30 credits and say so before fanning out.
 6. **End in a deliverable, not a chat answer.** Each skill defines its output
    artifact (markdown shortlist, one-page memo, runbook). Produce the artifact.
-7. **PII discipline.** The MCP never returns creator contact info; never
-   imply you have it, never speculate about it, and route "how do I contact
-   them" to Creatorland connections (coming soon) or the creator's public
-   profiles.
+7. **PII discipline — the deliverable invariant (CRE-582).** No contact
+   information appears in ANY deliverable, **regardless of source**. The MCP
+   never returns contact info — but your session may have other data sources
+   (other MCPs, uploaded files, web results) that do; the invariant still
+   holds. Scrub bio snippets of emails, phone numbers, and contact links.
+   Never imply you have contact info or speculate about it. The contact
+   affordance is a "Creatorland Member" flag + "Contact via Creatorland"
+   (connections coming soon) or the creator's public profiles.
+8. **Thin-niche honesty for discovery (CRE-587).** When a target's exact
+   niche is thin in-corpus, never pad the list with weak fits silently.
+   Disclose, then broaden exactly one labeled step at a time — exact niche →
+   adjacent niches → vertical — and mark every pick as in-corpus exact fit
+   vs adjacent fit ("3 exact matches; 5 adjacent — expedition/outdoor
+   divers"). Downgrade any fit-confidence labels accordingly.
+9. **Multi-target briefs become slates.** A client target LIST (N archetypes)
+   gets one search per target and a per-target-sectioned deliverable with an
+   overview (brief restatement, methodology, per-target caveats) — never one
+   merged generic search.

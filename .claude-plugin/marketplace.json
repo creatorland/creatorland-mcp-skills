@@ -14,7 +14,9 @@
       "source": "./plugins/creatorland-data",
       "description": "Creatorland Data MCP + companion skills: creator discovery, shortlists from briefs or call transcripts, fair-price negotiation memos, rate benchmarking. One install wires the MCP connection and the full workflow catalog.",
       "version": "0.1.0",
-      "author": { "name": "Creatorland" }
+      "author": {
+        "name": "Creatorland"
+      }
     }
   ]
 }
