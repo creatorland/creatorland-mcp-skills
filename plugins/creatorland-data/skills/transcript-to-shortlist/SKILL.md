@@ -12,9 +12,10 @@ confirm, then executes the full casting flow. The deliverable is the same
 client-ready ranked shortlist Brief-to-Shortlist produces.
 
 Read first: ${CLAUDE_PLUGIN_ROOT}/shared/conventions.md (tool schemas, credit
-prices, the seven conventions). This skill honors thrifty/thorough credit
-modes, Refusal Recovery, and the Freshness Gate via the brief-to-shortlist
-flow it delegates to.
+prices, the conventions — including 10 budget-is-a-price, 11 brand filters, 12
+relax the binding constraint, 13 auto-chain profile lookups). This skill honors
+thrifty/thorough credit modes, Refusal Recovery, and the Freshness Gate via the
+brief-to-shortlist flow it delegates to.
 
 > Trigger discrimination: input is a **call/transcript/recording** and the
 > user wants **creators found**. If they already have a written brief, use
@@ -37,8 +38,17 @@ ${CLAUDE_PLUGIN_ROOT}/shared/transcript-intake.md in full:
    vertical, deliverables, compensation_type, budget, timeline, exclusions),
    tagging each value **stated / inferred / missing**.
 2. Capture every creator named on the call ("someone like @x", "that girl who
-   does the GRWM videos — @y") as **lookalike seed candidates**, and every
-   competitor brand mentioned as **conflict-check candidates**.
+   does the GRWM videos — @y") as **lookalike seed candidates**. For brands,
+   split them by intent: brands the user wants creators to have worked with /
+   resemble ("creators who've done deals with brands like ours") become a
+   positive **comp set** carried into the search as a `brand_affinities`
+   filter; brands to avoid overlap with become **conflict-check candidates**.
+   When the caller names their own employer as the comp anchor ("I'm at
+   Fenty"), expand it to its peer set (Fenty → Rare Beauty, Pat McGrath,
+   Glossier, …) for the comp set.
+   Record any **budget** as a rate band to benchmark, NEVER as a follower
+   filter — money is a price, not an audience size (convention 10). Follower
+   filters come only from an explicit tier/size ask on the call.
 3. Ask gap questions in ONE batched message, **max 4**, ordered by impact
    (platform + follower tier + markets + budget posture are the high-impact
    four). Never ask about something the call answered — quote it back
@@ -52,7 +62,9 @@ ${CLAUDE_PLUGIN_ROOT}/shared/transcript-intake.md in full:
 they drive rationale quality). Then:
 
 - **Brief-mode search** — exactly as Brief-to-Shortlist step 1, limit =
-  2–3× shortlist size.
+  2–3× shortlist size. If the call produced a positive comp set, pass it as
+  the `brand_affinities` filter; do not turn the call's budget into
+  `min_followers`/`max_followers`.
 - **Lookalike search per named creator** (2 credits each), unioned with the
   brief-mode results before the profile fan-out:
 
@@ -109,6 +121,11 @@ All of brief-to-shortlist's honesty rules apply, plus:
   similarity search supports.
 - If the call named a creator the corpus can't resolve, say so in caveats
   rather than silently dropping the seed.
+- A budget heard on the call is spend, not an audience size — it sets the rate
+  band, never the follower filter (convention 10). When results are thin, relax
+  per convention 12: broaden geo at the level the call used (don't offer
+  sub-regions already inside a stated region) and keep the requested platform
+  fixed.
 
 ## Credit footprint
 
