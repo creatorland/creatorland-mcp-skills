@@ -49,7 +49,7 @@ Thin slices come back **refused or broadened** — see Refusal Recovery.
 
 Pro = $199/mo, 5,000 credits. Free tier = discovery only, small grant.
 
-## The nine conventions
+## The conventions
 
 1. **Provenance-first output.** Every aggregate you emit is a citation-ready
    block: the stat + the provenance line the tool returned + the recency
@@ -88,3 +88,51 @@ Pro = $199/mo, 5,000 credits. Free tier = discovery only, small grant.
    gets one search per target and a per-target-sectioned deliverable with an
    overview (brief restatement, methodology, per-target caveats) — never one
    merged generic search.
+10. **Budget is a PRICE, never an audience-size filter (CRE-649).** A figure
+    the user gives as spend — "$3–5K per video", "we have $20K", "mid
+    four-figures a post" — is a RATE, not a follower count. NEVER derive
+    `min_followers` / `max_followers` from a budget, and never disqualify a
+    creator for being "too small" (or "too big") for a budget the user stated
+    as spend. Map budget → rate instead: surface the market rate band up front
+    (one `query_market_intelligence` rate call for the slate's vertical,
+    Refusal Recovery as always) and flag which candidates sit inside the
+    stated budget band, or simply attach the band as context. Set follower
+    filters ONLY from an explicit audience-size ask ("50–200K followers") or a
+    named tier (macro/mid/micro) — never from money. When the user gives both
+    a budget and a tier, the tier sets the follower filter and the budget sets
+    the rate band; they are different axes.
+11. **Use brand filters when the user names brands (CRE-649).** When the user
+    names brands to match on — "creators who've worked with similar beauty
+    brands, I'm at Fenty" — build an explicit comp set from the named brand
+    and its peers (Fenty → Rare Beauty, Pat McGrath, Glossier, Charlotte
+    Tilbury, …) and pass it as a `brand_affinities` filter on `search_creators`
+    (and confirm via each profile's **brand affiliations** in the fan-out),
+    rather than leaving brand fit to semantic match on the `brief` text.
+    Show the comp set back so the user can correct it.
+12. **Relax the BINDING constraint, sensibly — never the satisfied one
+    (CRE-649).** When results are thin, loosen the constraint that is actually
+    limiting the pool, and never propose a change that contradicts what the
+    user asked for:
+    - **Geo:** if the user named a region (e.g. "California"), do NOT suggest
+      "widen to LA / SF / SD" — those ARE inside California, so a thin result
+      is a *coverage* symptom, not an over-tight filter. Broaden geo at the
+      SAME level the user used (California → West Coast / US), state coverage
+      limits honestly ("our corpus is light on creators tagged to California
+      right now"), and offer **audience-geo** as an alternative axis (creators
+      whose *audience* skews to the region, even if the creator isn't based
+      there).
+    - **Platform:** if the user requested a platform (IG Reels), do NOT propose
+      switching it off (don't offer TikTok when they asked for Instagram).
+      Relax tier, recency, niche-tightness, or engagement-rate floors first;
+      keep the requested platform fixed unless the user opens it.
+    - **Order of relaxation:** drop the narrowest non-requested filter first
+      (engagement-rate floor → niche tightness → follower-tier width → geo
+      level), never a constraint the user explicitly stated, and say which
+      constraint you relaxed and why.
+13. **Auto-chain confirming profile lookups (CRE-649).** When the ask requires
+    confirming a fact about specific finalists — affiliations, audience geo,
+    appropriate pricing — call `get_creator_profile` on the top 2–3
+    automatically to fulfil the ask. Do NOT stop and offer to look them up;
+    the lookup IS the job. (The full profile fan-out already covers this in
+    the shortlist skills; this convention makes it explicit for lighter,
+    fewer-candidate asks too.)

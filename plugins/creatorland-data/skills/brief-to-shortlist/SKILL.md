@@ -12,7 +12,9 @@ paste into a deck without re-checking the data framing. For agency casting
 directors and brand-side influencer-marketing managers.
 
 Read first: ${CLAUDE_PLUGIN_ROOT}/shared/conventions.md (tool schemas, credit
-prices, the seven conventions). This skill honors thrifty/thorough credit modes
+prices, the conventions — conventions 10 budget-is-a-price, 11 brand filters,
+12 relax the binding constraint, and 13 auto-chain profile lookups especially
+apply to casting). This skill honors thrifty/thorough credit modes
 (${CLAUDE_PLUGIN_ROOT}/shared/credit-modes.md), Refusal Recovery
 (${CLAUDE_PLUGIN_ROOT}/shared/refusal-recovery.md), and the Freshness Gate
 (${CLAUDE_PLUGIN_ROOT}/shared/freshness-gate.md).
@@ -46,6 +48,21 @@ content style / vibe words, platform(s), geo markets, follower tier, explicit
 exclusions. Show it in one compact block; proceed unless the user corrects it.
 Keep the brief's own language — it powers the per-creator rationale later.
 
+Two extraction rules to get right here (conventions 10–11):
+
+- **Budget is a price, not an audience size.** If the brief gives money per
+  deliverable or a campaign total ("$3–5K/video", "we have $20K"), record it
+  as the **rate band to check** — never as a follower filter. Set follower
+  filters ONLY from an explicit audience-size ask ("50–200K followers") or a
+  named tier. Budget and tier are different axes; a budget alone never sets
+  `min_followers`/`max_followers`.
+- **Named brands → a comp set.** If the brief names brands to match on
+  ("creators who've worked with similar beauty brands — I'm at Fenty"), build
+  a comp set from the named brand and its peers (Fenty → Rare Beauty, Pat
+  McGrath, Glossier, Charlotte Tilbury, …) and carry it into the search as a
+  `brand_affinities` filter (step 1). Show the comp set in the normalized
+  block so the user can correct it.
+
 > Alternative spine: the server ships a maintained prompt,
 > `shortlist-from-brief`, that encodes this same flow server-side. Prefer it
 > when the harness surfaces server prompts cleanly; otherwise run the steps
@@ -62,9 +79,10 @@ search_creators {
   "filters": {
     "platform": "<if the brief names one: instagram|tiktok|youtube|twitter|twitch>",
     "country": "<primary market if stated>",
-    "min_followers": <tier floor if stated>,
-    "max_followers": <tier ceiling if stated>,
+    "min_followers": <tier floor — ONLY from an explicit audience-size ask or named tier; NEVER inferred from a budget>,
+    "max_followers": <tier ceiling — same rule; a "$3–5K/video" budget is a rate, not a size>,
     "niche": "<if cleanly stated>",
+    "brand_affinities": ["<comp-set brands from step 0 when the brief names brands to match on>"],
     "min_engagement_rate": <0–1, only if the brief sets a bar>
   },
   "limit": 24,
@@ -75,6 +93,20 @@ search_creators {
 Include only filters the brief actually supports — `brief` text alone is valid;
 if you pass `filters` it needs at least one signal. Use `precision: "tight"`
 when the brief is highly specific, `"broad"` when it's a vibe sketch.
+
+When the brief names brands to match on, pass the step-0 comp set as
+`brand_affinities` (and confirm via profile **brand affiliations** in step 4) —
+more reliable than hoping `brief` text surfaces brand-adjacent creators
+semantically (convention 11). Never translate the campaign budget into
+`min_followers`/`max_followers` (convention 10) — the budget is handled by the
+rate call in step 5, not the search filters.
+
+**If results come back thin, relax per convention 12** — broaden the binding
+constraint, not a satisfied one: if the user said "California", widen geo at
+the same level (California → West Coast / US) and offer audience-geo as an
+alternative axis; never suggest sub-regions already inside the stated region,
+and never propose switching off the requested platform. Say which constraint
+you relaxed and why.
 
 **Step 2 — Profile fan-out.** `get_creator_profile` per candidate:
 
@@ -117,6 +149,12 @@ Wrapped in Refusal Recovery: if refused (rate floor: 10 brands / 50 deals),
 walk the ladder (thorough: until clearance; thrifty: max 2 rungs) and disclose
 the clearance level in the deliverable. Each rung is a fresh 5-credit call.
 
+If the brief stated a budget, this rate band is how that budget is honored
+(convention 10): surface the band up front and flag which finalists sit inside
+the stated budget — appropriately priced ✓, above band ↑, below band ↓ — as a
+rate-fit note on each row. Never disqualify a creator for being "too small"
+for the budget; the budget is spend, not an audience filter.
+
 **Step 6 — Rank and write the deliverable.** Rank on brief-fit (audience,
 vibe, geo, tier), penalizing aging freshness and conflicts. Tie rationale to
 the brief's own language.
@@ -137,6 +175,8 @@ _Built from your brief, <date> · <N> creators · Creatorland Data_
 ### 1. <Name> — @<handle> (<platform>, <follower count>)
 - **Why for this brief:** <2–3 sentences quoting the brief's language — "you asked for 'lo-fi kitchen energy'; her last-90-day grid is exactly that">
 - **Audience-geo fit:** <top geos vs. the brief's markets, e.g. "62% US / 14% UK — matches your US-first ask">
+- **Rate fit:** ✓ in your $<budget> band | ↑ likely above band | ↓ likely below band — vs. the slate rate band below (only when the brief gave a budget)
+- **Brand fit:** <when the brief named brands to match on: "affiliations include <comp-set brand>" or "no comp-set affiliation found in corpus">
 - **Freshness:** fresh | aging (note) — stale creators never appear here
 - **Conflicts:** none found | ⚠ affiliated with <brand> (per profile brand affiliations) — review before pitch
 <repeat per creator>
@@ -179,6 +219,13 @@ Credits used this run: ~<N> (1 search ×2 + <M> profiles ×1 + <R> market-intel 
 - Rationale must trace to brief language or profile data — no invented
   audience claims, no engagement numbers the tools didn't return.
 - Stale data is never silently mixed into the main list.
+- A stated budget is spend, not an audience size — never disqualify a creator
+  for being "too small/large" for it, and never set follower filters from it
+  (convention 10). Rate fit is framed against the slate's vertical band, never
+  as that creator's actual rate.
+- When you relax a thin search, never suggest a sub-region already inside the
+  user's stated region, and never propose abandoning the requested platform
+  (convention 12); name the constraint you relaxed.
 - Never imply access to creator contact info (PII discipline, convention 7).
 
 ## Credit footprint
