@@ -38,6 +38,15 @@ Thin slices come back **refused or broadened** — see Refusal Recovery.
 ### Server-side prompts (use them — they're maintained with the server)
 `shortlist-from-brief`, `lookalike-search`, `fair-price-check`.
 
+### Connection tools — brand→creator outreach (used ONLY by connection-enabled skills)
+`request_creator_connection` (10 credits), `get_connection_status` (free),
+`list_connections` (free). Entitlement-gated behind `creator_connections`
+(pro + pilot); non-entitled plans get a successful refused envelope. Full
+contract — schemas, mandatory pre-flight (credit estimate + confirm +
+suppression pre-screen), graceful degradation, and privacy invariants — lives in
+`${CLAUDE_PLUGIN_ROOT}/shared/connection-flow.md`. The read-only catalog does NOT
+use these tools; outreach is an additive skill layer.
+
 ## Credit price index ($25 / 1,000-credit pack → $0.025/credit)
 
 | Action | Credits |
@@ -46,6 +55,9 @@ Thin slices come back **refused or broadened** — see Refusal Recovery.
 | `search_creators` | 2 |
 | `query_market_intelligence` | 5 |
 | profile fan-out of N | 1×N |
+| `request_creator_connection` | 10 (one charge per creator, whole sequence) |
+| `get_connection_status` / `list_connections` | free |
+| reaching N creators | 10×N |
 
 Pro = $199/mo, 5,000 credits. Free tier = discovery only, small grant.
 
@@ -77,7 +89,9 @@ Pro = $199/mo, 5,000 credits. Free tier = discovery only, small grant.
    holds. Scrub bio snippets of emails, phone numbers, and contact links.
    Never imply you have contact info or speculate about it. The contact
    affordance is a "Creatorland Member" flag + "Contact via Creatorland"
-   (connections coming soon) or the creator's public profiles.
+   (live now — Creatorland's matchmaker reaches the creator for you via the
+   connection tools; the creator's address is still never returned or shown) or
+   the creator's public profiles.
 8. **Thin-niche honesty for discovery (CRE-587).** When a target's exact
    niche is thin in-corpus, never pad the list with weak fits silently.
    Disclose, then broaden exactly one labeled step at a time — exact niche →
