@@ -28,6 +28,8 @@ proceed (do not block):
 | `search_creators` | 2 |
 | `get_creator_profile` | 1 each |
 | `query_market_intelligence` (incl. each ladder retry) | 5 each |
+| `request_creator_connection` | 10 each (one charge per creator, whole sequence) |
+| `get_connection_status` / `list_connections` | free |
 
 ## Logging convention
 
