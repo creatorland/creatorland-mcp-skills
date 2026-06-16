@@ -1,0 +1,33 @@
+Creatorland MCP Skills: Proprietary License
+Copyright (c) 2026 Creatorland, Inc. All rights reserved.
+
+This repository is made publicly viewable solely to support installation and
+review in agent plugin directories (including the Anthropic plugin directory and
+the OpenAI Codex plugin ecosystem) and to let users connect the Creatorland Data
+MCP through a supported agent host.
+
+Permission is granted only to:
+  (a) install and use these plugins and skills, as published, with the
+      Creatorland Data MCP through a supported agent host;
+  (b) view the source for evaluation and security review; and
+  (c) allow the agent plugin directories in which this plugin is listed to host,
+      mirror, and distribute this repository as published for the purpose of that
+      listing.
+
+All other rights are reserved. Without Creatorland's prior written permission you
+may not copy, modify, adapt, translate, redistribute, sublicense, sell, or create
+derivative works from any part of this repository (including the skill text,
+prompts, conventions, and configuration), in whole or in part, for any commercial
+or non-commercial purpose.
+
+The Creatorland Data MCP and its underlying data are separately governed by the
+Creatorland Terms of Service and require authentication; nothing in this license
+grants any right to that service or its data.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE, AND NONINFRINGEMENT. IN NO EVENT SHALL CREATORLAND BE
+LIABLE FOR ANY CLAIM, DAMAGES, OR OTHER LIABILITY ARISING FROM, OUT OF, OR IN
+CONNECTION WITH THE SOFTWARE OR ITS USE.
+
+For licensing inquiries: brian@creatorland.com
