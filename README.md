@@ -5,7 +5,7 @@ Plugins that connect the **Creatorland Data MCP** and install its companion skil
 ## Install (Claude Code / Cowork)
 
 ```
-/plugin marketplace add bmfla/claude-plugins
+/plugin marketplace add creatorland/creatorland-mcp-skills
 /plugin install creatorland-data@creatorland
 ```
 
