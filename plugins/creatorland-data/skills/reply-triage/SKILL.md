@@ -1,6 +1,6 @@
 ---
 name: reply-triage
-description: Triage the brand's inbound creator replies into action buckets — pull replied connections, read each one's classification (interested / question / declined) and brand-safe intent summary, then say what to do with each. Use when the user says "triage my replies", "who replied to my outreach", "draft answers to creator questions", or "what should I do with these responses". Deliverable is a triage memo: counts by bucket plus a drafted reply for everyone who asked a question. Free, read-only.
+description: Triage the brand's inbound creator replies into action buckets, pull replied connections, read each one's classification (interested / question / declined) and brand-safe intent summary, then say what to do with each. Use when the user says "triage my replies", "who replied to my outreach", "draft answers to creator questions", or "what should I do with these responses". Deliverable is a triage memo, counts by bucket plus a drafted reply for everyone who asked a question. Free, read-only.
 ---
 
 # Reply Triage
