@@ -1,0 +1,32 @@
+{
+  "name": "creatorland-data",
+  "version": "0.1.0",
+  "description": "Creatorland Data MCP + companion skills — creator discovery, brief/transcript-to-shortlist, fair-price negotiation, rate benchmarking for influencer-marketing teams.",
+  "author": {
+    "name": "Creatorland",
+    "email": "brian@creatorland.com",
+    "url": "https://mcp.creatorland.com"
+  },
+  "homepage": "https://mcp.creatorland.com",
+  "repository": "https://github.com/bmfla/claude-plugins",
+  "license": "MIT",
+  "keywords": ["creators", "influencer-marketing", "casting", "rate-benchmarking", "creatorland"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "Creatorland Data",
+    "shortDescription": "Creator discovery, casting shortlists, and fair-rate benchmarking from real brand-creator deal data.",
+    "longDescription": "One install wires the Creatorland Data MCP connection plus a catalog of agency and brand workflow skills: find creators from a written brief or a call transcript, build client-ready shortlists, benchmark a quoted rate against the deal corpus, screen creators for competitor conflicts, and request creator connections. Honest by construction — every rate is a market band, never a fabricated number.",
+    "developerName": "Creatorland",
+    "category": "Productivity",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://mcp.creatorland.com",
+    "privacyPolicyURL": "https://mcp.creatorland.com/legal/privacy",
+    "termsOfServiceURL": "https://mcp.creatorland.com/legal/terms",
+    "defaultPrompt": [
+      "Use Creatorland Data to build a shortlist of beauty creators for a spring campaign.",
+      "Use Creatorland Data to benchmark a $5,000 quote for a fitness Reel."
+    ],
+    "brandColor": "#e832d2"
+  }
+}
