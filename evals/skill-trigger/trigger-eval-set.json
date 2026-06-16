@@ -1,0 +1,52 @@
+{
+  "meta": {
+    "name": "creatorland-data skill-trigger eval",
+    "ticket": "CRE-584",
+    "version": "1.0.0",
+    "note": "Cross-skill router eval. Each case: a user message + the skill that SHOULD fire (expected), or 'none' for hard/near-miss negatives. category groups cases. Confusable pairs test discrimination between adjacent skills (e.g. pricing vs casting, quick-rate vs negotiation-memo)."
+  },
+  "cases": [
+    {"id": "p01", "message": "Build a shortlist of creators for this brief: skincare brand, US, micro creators, spring launch.", "expected": "brief-to-shortlist", "category": "discovery_positive"},
+    {"id": "p02", "message": "Here's the transcript from our client kickoff call. Find creators that match what they asked for.", "expected": "transcript-to-shortlist", "category": "discovery_positive"},
+    {"id": "p03", "message": "Turn this discovery call into a formal creator brief I can circulate internally.", "expected": "brief-builder", "category": "brief_positive"},
+    {"id": "p04", "message": "We love @glowwithava but she's booked. Find similar creators at a few different price points.", "expected": "lookalike-ladder", "category": "discovery_positive"},
+    {"id": "p05", "message": "Here's a mood board screenshot, find creators whose aesthetic matches this vibe.", "expected": "cast-from-a-vibe", "category": "discovery_positive"},
+    {"id": "p06", "message": "Build me a longlist of 100 beauty creators we can work down for an always-on program.", "expected": "longlist-machine", "category": "discovery_positive"},
+    {"id": "p07", "message": "We only have the brand name, no brief. Who should Glossier work with based on who already works with them?", "expected": "zero-brief-discovery", "category": "discovery_positive"},
+    {"id": "p08", "message": "Cast this same campaign across the US, UK, and Brazil.", "expected": "cross-market-slate", "category": "discovery_positive"},
+    {"id": "p09", "message": "What should I pay for an Instagram reel in beauty? Just a ballpark.", "expected": "one-number-rate", "category": "pricing_positive"},
+    {"id": "p10", "message": "A creator quoted us $8,000. Is that fair, and what's a defensible counter?", "expected": "fair-price-brief", "category": "pricing_positive"},
+    {"id": "p11", "message": "Build a rate card benchmarking this roster of 12 creators.", "expected": "rate-card-generator", "category": "pricing_positive"},
+    {"id": "p12", "message": "We're asking $15k for this deal, help me back up that number to the brand.", "expected": "rate-justifier", "category": "pricing_positive"},
+    {"id": "p13", "message": "How should I split a $50k budget across a mix of macro, mid, and micro creators?", "expected": "budget-allocator", "category": "pricing_positive"},
+    {"id": "p14", "message": "Run a conflict check on @fitwithjake against Nike, Adidas, and Lululemon before we pitch.", "expected": "conflict-check", "category": "diligence_positive"},
+    {"id": "p15", "message": "Give me a diligence one-pager on @theskincaredoc for our procurement team.", "expected": "creator-diligence-report", "category": "diligence_positive"},
+    {"id": "p16", "message": "Which creators are already working with our competitor Sephora?", "expected": "competitor-watch", "category": "diligence_positive"},
+    {"id": "p17", "message": "Here's our current roster CSV, where are the coverage gaps?", "expected": "casting-gap-analysis", "category": "diligence_positive"},
+    {"id": "p18", "message": "Write the quarterly state-of-creator-pricing memo for the Beauty vertical for our CMO.", "expected": "vertical-briefing", "category": "market_positive"},
+    {"id": "p19", "message": "What's changed in the Fitness vertical since last quarter?", "expected": "vertical-forecast-brief", "category": "market_positive"},
+    {"id": "p20", "message": "Make this market stat deck-ready with proper provenance so I can paste it into the client deck.", "expected": "deck-inserts", "category": "market_positive"},
+    {"id": "p21", "message": "Enrich this spreadsheet of creators with their audience geo and brand affiliations.", "expected": "roster-enricher", "category": "roster_positive"},
+    {"id": "p22", "message": "Run the onboarding tour, I'm new here and want to see how this works.", "expected": "onboarding-tour", "category": "meta_positive"},
+    {"id": "p23", "message": "Triage the replies that came back from our outreach, who's interested and what do I do with each?", "expected": "reply-triage", "category": "outreach_positive"},
+    {"id": "p24", "message": "Which brand categories should we be pitching for our creator @mikecooks?", "expected": "creator-brand-matchmaker", "category": "outreach_positive"},
+    {"id": "p25", "message": "Poke holes in this shortlist before I send it, red-team the casting.", "expected": "skeptics-second-pass", "category": "review_positive"},
+
+    {"id": "c01", "message": "What's the going rate to hire creators for our campaign? And who are good ones in fitness?", "expected": "one-number-rate", "category": "confusable_pricing_vs_discovery", "note": "rate intent leads; pricing should win over casting"},
+    {"id": "c02", "message": "Find creators for my client.", "expected": "brief-to-shortlist", "category": "confusable_vague_discovery", "note": "vague ask, should still route to discovery not pricing"},
+    {"id": "c03", "message": "Is $5k a fair rate, and can you also build me the case to send the brand defending it?", "expected": "rate-justifier", "category": "confusable_buyer_vs_seller", "note": "seller-side defend, not buyer-side fair-price"},
+    {"id": "c04", "message": "Quick gut check, what's a normal price for a TikTok video in fashion?", "expected": "one-number-rate", "category": "confusable_quick_vs_memo", "note": "quick number, not the full negotiation memo"},
+    {"id": "c05", "message": "Cast this brief and also find more creators like our best performer @runwithsam.", "expected": "triangulated-casting", "category": "confusable_brief_plus_seed", "note": "brief AND a seed = triangulated, not plain brief-to-shortlist"},
+
+    {"id": "n01", "message": "What's the weather in New York today?", "expected": "none", "category": "hard_negative"},
+    {"id": "n02", "message": "Write me a Python function to compute Fibonacci numbers.", "expected": "none", "category": "hard_negative"},
+    {"id": "n03", "message": "Summarize this news article about interest rates.", "expected": "none", "category": "hard_negative"},
+    {"id": "n04", "message": "Book me a flight to SF next Tuesday.", "expected": "none", "category": "hard_negative"},
+    {"id": "n05", "message": "What's the going rate for a freelance graphic designer in Chicago?", "expected": "none", "category": "near_miss_negative", "note": "pricing words but not creator-marketing; should NOT fire creator rate skills"},
+    {"id": "n06", "message": "Find me a good Italian restaurant near downtown.", "expected": "none", "category": "near_miss_negative", "note": "'find me' + recommendation shape, but not creators"},
+    {"id": "n07", "message": "Can you review the contract clause about exclusivity in this MSA?", "expected": "none", "category": "near_miss_negative", "note": "brand/creator-adjacent legal, but no skill covers contract review"},
+    {"id": "n08", "message": "How many credits will my next few searches cost?", "expected": "credit-budget-guardian", "category": "meta_positive", "note": "this DOES have a skill; not a negative"},
+    {"id": "n09", "message": "Have I already searched this before? Don't make me pay twice.", "expected": "search-memo", "category": "meta_positive"},
+    {"id": "n10", "message": "Thanks, that's all for now!", "expected": "none", "category": "hard_negative"}
+  ]
+}

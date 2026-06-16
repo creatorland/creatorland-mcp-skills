@@ -1,0 +1,182 @@
+[
+  {
+    "name": "brief-builder",
+    "description": "Turn a call transcript into a formal creator brief DOCUMENT (not a shortlist) \u2014 objectives, target audience, creator spec, deliverables, compensation, timeline, exclusions \u2014 ready for internal sign-off and to feed casting later. Use when the user says \"write the brief from this call\", \"turn this transcript into a brief\", \"draft the creator brief\", or wants the brief artifact itself. Zero tool calls by default (0 credits); optional market-norms enrichment for the budget section."
+  },
+  {
+    "name": "brief-to-shortlist",
+    "description": "Turn a written client brief you already have (pasted email, deck text, bullets, RFP excerpt) into a client-ready ranked creator shortlist with per-creator rationale, audience-geo fit, freshness status, conflict flags, and a vertical rate band. Use when the user says \"build a shortlist for this brief\", \"find creators for this campaign\", \"cast this brief\", or \"who should we use for [brand/campaign]\" with a brief in hand. Deliverable is a paste-into-deck markdown shortlist."
+  },
+  {
+    "name": "budget-allocator",
+    "description": "Split a total campaign budget into a creator-tier mix (e.g. 2 macro + 8 mid + 20 micro) using corpus rate bands per tier, with named candidate creators per slot. Use when the user says \"allocate this budget\", \"how should I split $50k across creators\", \"what mix of creators can I afford\", or has a total budget + campaign goal and needs a tier plan. Deliverable is a budget allocation plan with per-slot candidates. For pricing one deal, use fair-price-brief or one-number-rate."
+  },
+  {
+    "name": "campaign-monitor",
+    "description": "For a LIVE campaign whose rostered creators are Creatorland members with OAuth'd socials, monitor account-level content performance via the consented stats tool and build a living dashboard from it. Use when the user says \"monitor this campaign\", \"campaign dashboard\", \"track our creators' performance\", \"how are our campaign creators doing\", or hands over a live roster to watch. Handles roster intake, per-creator consent status (honest \"not a member / not OAuth'd\" slots), benchmark framing, and scheduled refresh. Deliverable is a per-creator performance dashboard with a consent-coverage summary. For a post-campaign wrap deck use wrap-report-skeleton; to cast a brief use brief-to-shortlist."
+  },
+  {
+    "name": "campaign-package-builder",
+    "description": "Bundle a full client-ready campaign proposal like a travel itinerary \u2014 target audience, creator tiers with rate bands, active deal types, and a budget allocation. Use when the user says \"build a campaign package\", \"put together a full proposal\", \"client-ready campaign deck skeleton\", or wants one deliverable spanning audience + talent + pricing + budget. Deliverable is a structured proposal skeleton. For just the budget split use budget-allocator; for just a shortlist use brief-to-shortlist."
+  },
+  {
+    "name": "cast-and-connect",
+    "description": "Cast a brief into a ranked shortlist AND reach the top-N creators in one move \u2014 find creators, you pick who to reach, then Creatorland's matchmaker runs a 3-touch sequence that stops on reply. Use when the user says \"cast and reach\", \"find creators and connect\", \"shortlist then reach out\", or \"cast this brief and connect with the top N\". Deliverable is the shortlist PLUS a \"Reached\" section (conn_ref + status). Reaching costs 10 credits/creator; outcomes are the creator's \u2014 never a promised yes."
+  },
+  {
+    "name": "cast-from-a-vibe",
+    "description": "Cast from a VISUAL or mood reference instead of a written brief \u2014 a screenshot, mood board, Pinterest grid, or aesthetic description. The harness reads the imagery into a creative direction, then finds creators matching that vibe. Use when the user shares an image/mood board and says \"find creators with this vibe\", \"cast from this mood board\", \"who shoots like this\", or \"creators matching this aesthetic\". Deliverable is a vibe-matched shortlist with the interpreted direction shown back."
+  },
+  {
+    "name": "casting-gap-analysis",
+    "description": "Audit an EXISTING creator roster (CSV, sheet, or pasted list) for coverage holes \u2014 geo, tier, niche, platform \u2014 then find creators that fill each gap. Use when the user uploads/pastes a roster and asks \"what's missing from our roster\", \"where are our coverage gaps\", \"audit our talent bench\", or \"fill the holes in this list\". Deliverable is a gap map plus per-gap fill candidates. Not for building a list from scratch \u2014 that's brief-to-shortlist."
+  },
+  {
+    "name": "competitor-watch",
+    "description": "Map which creators are creating around your competitor brands \u2014 surface creators with corpus-known affinities to named competitors, plus similar not-yet-affiliated creators as whitespace casting targets. Use when the user says \"who's creating for [competitor]\", \"which creators work with our competitors\", \"competitor creator watch\", \"map [brand]'s creator roster\", or names rival brands and wants the creator landscape around them. Deliverable is a competitor creator-landscape report."
+  },
+  {
+    "name": "conflict-check",
+    "description": "Screen one or more creators for competitor-brand conflicts before pitching \u2014 pull each creator's corpus-derived brand affiliations and flag overlaps with the competitor brands you name. Use when the user says \"conflict check\", \"any conflicts with [creator]\", \"is [creator] working with competitors\", \"screen this creator/slate against [brands]\", or before sending a pitch. Honestly framed \u2014 a clean result is \"no conflicts in our corpus\", never a guarantee of none."
+  },
+  {
+    "name": "conflict-safe-connect",
+    "description": "Safety-first outreach \u2014 run a conflict screen across your slate, then reach ONLY the creators with no competitor conflicts in our corpus. Use when the user says \"conflict-check then reach the clean ones\", \"safely connect with non-conflicting creators\", \"screen and connect\", or \"reach only creators with no competitor conflicts\". Flagged and unscreenable creators are held back for your decision, never reached automatically. Deliverable is a screen table (clean/flagged/unscreenable) plus a Reached section."
+  },
+  {
+    "name": "connection-pipeline-tracker",
+    "description": "Live pipeline board of every creator outreach this brand has running \u2014 grouped by lifecycle stage (queued \u2192 delivered \u2192 replied \u2192 accepted \u2192 opted-out/expired), with action-needed buckets surfaced and touches-sent + next-touch per outreach. Use when the user says \"show my outreach pipeline\", \"status of my connections\", \"outreach board\", \"who replied / who's pending\", or \"track my creator outreaches\". Read-only and free \u2014 reads the connection tools, never reaches anyone. Deliverable is a scannable markdown board."
+  },
+  {
+    "name": "creator-brand-matchmaker",
+    "description": "Talent-manager outbound prep \u2014 given one of your creators, find which brand categories and verticals are actively dealing with creators like them, as a pitch-target memo. Use when the user says \"which brands should we pitch for [creator]\", \"find pitch targets for my talent\", \"what verticals are active for creators like [handle]\", or \"brand matchmaker for [creator]\". Deliverable is a pitch-target memo of active brand verticals/categories \u2014 never specific brands or contacts."
+  },
+  {
+    "name": "creator-diligence-report",
+    "description": "Produce a standardized, credit-report-style diligence one-pager for a single creator \u2014 profile facts, audience geo, brand affiliations, freshness status, and vertical benchmark position \u2014 formatted for procurement and legal review. Use when the user says \"run diligence on [creator]\", \"diligence report\", \"vet this creator\", \"one-pager on [creator] for legal/procurement\", or needs an institutional artifact before contracting. Not for finding creators or pricing a live quote."
+  },
+  {
+    "name": "credit-budget-guardian",
+    "description": "Plan and track credit spend across a session before running expensive MCP workflows \u2014 estimate cost up front, hold a per-job ledger, warn over a threshold, and produce a chargeback log. Use when the user says \"how many credits will this cost\", \"track my credit spend\", \"set a credit budget\", \"don't go over N credits\", or \"log credits for chargeback\". Meta-skill, 0 data credits \u2014 it does no market/profile calls itself, it only prices and accounts for other skills."
+  },
+  {
+    "name": "cross-market-slate",
+    "description": "Take ONE campaign concept and cast it across several countries at once \u2014 parallel geo-constrained searches normalized into a market \u00d7 tier matrix, thin markets flagged for local sourcing. Use when the user wants the same campaign in multiple regions \u2014 \"cast this in the US, UK and Brazil\", \"same concept, five markets\", \"build a multi-market slate\", or \"who covers each region for this brief\". Deliverable is a per-market slate matrix. For distinct ARCHETYPES not geos, use brief-to-shortlist."
+  },
+  {
+    "name": "data-storyline-miner",
+    "description": "Internal content skill \u2014 sweep query_market_intelligence across verticals and deal types for headline-worthy contrasts (\"Beauty deal volume up, median value down\"), then draft newsletter and LinkedIn posts with provenance baked in. Use when the user says \"find a data story\", \"mine the corpus for content\", \"storyline miner\", \"what's a LinkedIn post from our data\", or wants top-of-funnel content sourced from the corpus itself. Deliverable is a ranked story list plus ready-to-publish drafts, each carrying its citation. For a single vertical's leadership memo use vertical-briefing; for tracked deltas use vertical-forecast-brief."
+  },
+  {
+    "name": "deck-inserts",
+    "description": "Format any Creatorland market or rate aggregate as a citation-ready deck insert \u2014 stat plus the verbatim provenance line plus the recency window \u2014 so a number you paste into a client deck is defensible by construction. Use when the user says \"make this deck-ready\", \"citation-ready stat\", \"deck insert\", \"provenance block for this number\", or wants a market/rate figure formatted for a client-facing deck. Compliance as a feature; produces ready-to-paste insert blocks."
+  },
+  {
+    "name": "draft-day",
+    "description": "Run a gamified, fantasy-sports-style casting DRAFT \u2014 the skill is the draft board, presenting candidate creators round-by-round per roster slot (macro/mid/micro) with scarcity and budget pressure from benchmark data, so a room picks a team interactively. Use when the user wants a live workshop, not a static list \u2014 \"run a casting draft\", \"draft our creator team\", \"draft day for [campaign]\", or \"workshop our roster round by round\". Deliverable is the drafted roster plus a board recap."
+  },
+  {
+    "name": "fair-price-brief",
+    "description": "Turn a creator quote into a one-page negotiation memo benchmarked against the Creatorland deal corpus. Use when the user says \"is this quote fair\", \"benchmark this rate\", \"negotiation prep for [creator/deal]\", or has a live quoted fee needing a defensible counter. Memo positions the quote vs p25/median/p75 with counter range, talking points, comp-set names, and provenance. For an instant single number with no memo, use one-number-rate instead."
+  },
+  {
+    "name": "longlist-machine",
+    "description": "Generate a large deduplicated LONGLIST (50\u2013150 creators) for always-on programs \u2014 run brief mode at high count across several phrasings, merge, dedupe, and tier-tag so a casting team works it down. Use when the user wants volume, not a curated cut \u2014 \"build a longlist of 100 creators\", \"give me a big pool to work down\", \"always-on talent pool\", or \"cast wide for [program]\". Deliverable is a tiered, deduplicated longlist table. For a curated client-ready 8\u201312, use brief-to-shortlist."
+  },
+  {
+    "name": "lookalike-ladder",
+    "description": "Find creators with the same vibe as a named seed creator, tiered into price bands \u2014 the \"we love her but she's booked/too expensive\" answer. Use when the user names ONE creator they love and wants similar-but-cheaper or similar-but-available options, says \"who's like @X but more affordable\", \"lookalikes for [creator] at different price points\", or \"same energy, smaller budget\". Deliverable is a three-rung ladder (premium/mid/value) with a vertical rate band per rung."
+  },
+  {
+    "name": "onboarding-tour",
+    "description": "Guided first run of the Creatorland Data MCP \u2014 one live call of each of the three tools with safe example arguments, narrated so a new workspace learns the tools, the credit model, and the privacy floors in ~5 minutes for ~8 credits. Use when the user says \"onboarding tour\", \"show me how this works\", \"get started with creatorland\", \"give me a tour\", \"what can this MCP do\", or when this appears to be a first session in a new workspace with no prior Creatorland calls. Ends with the user's first real shortlist invitation."
+  },
+  {
+    "name": "one-number-rate",
+    "description": "Instant fair-rate answer \u2014 one number, the band, done in 30 seconds. Use when the user says \"what should I pay [creator/for X]\", \"quick rate check\", \"ballpark rate\", \"going rate for an IG reel in beauty\", or wants a fast number without a memo. Returns the corpus median, the p25\u2013p75 band, one provenance line, and one scope line. For a full negotiation memo with counter range and talking points, use fair-price-brief instead."
+  },
+  {
+    "name": "outreach-spend-forecaster",
+    "description": "Forecast and govern connection spend for a brand\u2192creator outreach campaign \u2014 price reaching N creators at 10 credits each ($0.025/credit), check it against a budget/threshold, net out who's already in-flight, hold a running ledger as connections fire, and emit a per-campaign chargeback log. Use when the user says \"how much will this outreach cost\", \"forecast my connection spend\", \"set an outreach budget\", \"don't go over N credits on outreach\", or \"chargeback log for this campaign\". Meta-skill, 0 data credits \u2014 it accounts for spend, it doesn't reach creators."
+  },
+  {
+    "name": "outreach-standup",
+    "description": "A terse recurring standup digest of what MOVED in your creator outreach since last run \u2014 new replies (interested/question/declined), new yeses, stalls approaching Day-7, new opt-outs, and the single most important \"do this next.\" Use when the user says \"outreach standup\", \"what moved in my outreach since yesterday\", \"daily outreach digest\", or \"any new replies/yeses today\". Read-only, free, schedulable. For the full board, use connection-pipeline-tracker."
+  },
+  {
+    "name": "outreach-wrap-report",
+    "description": "Post-campaign wrap report built from a campaign's REAL outreach outcomes \u2014 pull the brand's connections for that campaign and compute the funnel (reached \u2192 delivered \u2192 replied [interested/question/declined] \u2192 accepted) with response rate, interested-rate by tier/vertical where derivable, and median time-to-yes. Use when the user says \"outreach wrap report\", \"how did my campaign do\", \"reply/accept funnel for this campaign\", or \"post-campaign outreach summary\". Read-only and free; deliverable is an exec-readable paste-into-deck report."
+  },
+  {
+    "name": "rate-anchored-opportunity",
+    "description": "Build a market-credible outreach offer \u2014 assemble a reusable `opportunity` object whose `budget_band` is anchored to the corpus rate band (p25\u2013p75) for the vertical/tier, so your pitch isn't a lowball. Use when the user says \"build a market-credible offer\", \"what budget band should I pitch\", \"anchor my outreach offer to market rates\", or \"rate-anchored opportunity\". Hands the offer to cast-and-connect / conflict-safe-connect / waterfall-casting. Distinct from fair-price-brief (a negotiation memo) \u2014 this produces a reusable outreach offer."
+  },
+  {
+    "name": "rate-card-generator",
+    "description": "Take a LIST of creators and emit a formatted internal rate card \u2014 a benchmark band per creator (by deal type where the corpus supports it) with provenance, a \"Zestimate\" for creator rates. Use when the user says \"build a rate card\", \"rate card for these creators\", \"benchmark this roster's rates\", or hands over multiple creators needing band context each. Deliverable is a per-creator rate-card table. For one deal's memo use fair-price-brief; for a single quick number use one-number-rate."
+  },
+  {
+    "name": "rate-justifier",
+    "description": "Talent-manager / creator-side skill \u2014 build the case to DEFEND a quote you're sending a brand, using corpus rate bands (\"market p75 for this band is $X, here's why our ask sits there\"). Use when the user says \"justify our rate\", \"defend this quote\", \"we're asking $X \u2014 back it up\", \"talent-side rate case\", or is the seller, not the buyer. Deliverable is a justification memo positioning the ask within the market band. For the buyer's negotiation memo, use fair-price-brief."
+  },
+  {
+    "name": "reply-triage",
+    "description": "Triage the brand's inbound creator replies into action buckets, pull replied connections, read each one's classification (interested / question / declined) and brand-safe intent summary, then say what to do with each. Use when the user says \"triage my replies\", \"who replied to my outreach\", \"draft answers to creator questions\", or \"what should I do with these responses\". Deliverable is a triage memo, counts by bucket plus a drafted reply for everyone who asked a question. Free, read-only."
+  },
+  {
+    "name": "rfp-response-builder",
+    "description": "Assemble the creator-strategy section of an RFP response from the RFP's audience and market requirements \u2014 market sizing from corpus aggregates, an example talent slate per target market via brief-mode searches, and indicative rate bands with provenance citations. Use when the user says \"respond to this RFP\", \"build the RFP creator section\", \"RFP talent strategy\", or pastes an RFP with multi-market creator requirements. Heavy multi-call; produces a cited, per-market strategy document."
+  },
+  {
+    "name": "roster-enricher",
+    "description": "Upgrade a talent spreadsheet you already own \u2014 take the customer's roster (CSV, sheet, or pasted list), reverse-look-up every row via get_creator_profile, and append interests, audience geo, freshness, and brand affiliations as new columns. Use when the user says \"enrich this roster\", \"enrich my talent list\", \"add data to this spreadsheet of creators\", \"look up everyone in this sheet\", or uploads a creator list to augment. BYO-data upgrade; per-row profile fan-out, credit estimate mandatory."
+  },
+  {
+    "name": "search-memo",
+    "description": "Keep a running log of searches run and creators already reviewed this engagement so repeat searches (and repeat credits) are avoided \u2014 before a new search, diff it against prior runs and report what's new. Use when the user says \"have I searched this before\", \"what have we searched\", \"show the search log\", \"dedupe this against earlier\", or wants to avoid paying twice for the same query. Produces/updates a session search memo; near-zero credits."
+  },
+  {
+    "name": "skeptics-second-pass",
+    "description": "Adversarially stress-test a creator shortlist you already have \u2014 re-run the brief under an alternate phrasing for missed talent, audit each pick for audience-geo mismatch, screen for competitor conflicts via affiliations, and write a risks-and-caveats appendix. Use when the user says \"second pass\", \"poke holes in this shortlist\", \"stress-test this slate\", \"red-team this casting\", or wants a critical review before sending. The anti-yes-man pass; produces a critique appendix."
+  },
+  {
+    "name": "suppression-aware-prescreen",
+    "description": "Before you reach out, pre-screen a creator list against this brand's suppression ledger (opted-out) and anyone already in an ACTIVE sequence for this brand \u2014 partition into reachable / skip-opted-out / skip-already-active so you don't waste credits or harass anyone. Use when the user says \"pre-screen this list before I reach out\", \"who on this list opted out or is already being contacted\", \"dedupe against suppression\", or \"check before outreach\". Read-only and free; deliverable is a partition table + the clean reachable set."
+  },
+  {
+    "name": "talent-scout",
+    "description": "Standing discovery profile re-run on demand \u2014 save your recurring search criteria (briefs, lookalike seeds, filters) once as a scout profile, then say \"run my scout\" anytime to get a diff report of NEW creators who entered your search space since last run. Use when the user says \"set up a talent scout\", \"watch this space for new creators\", \"run my scout\", \"any new creators since last time\", or wants recurring discovery without re-explaining the brief. Deliverable is a what's-new diff report."
+  },
+  {
+    "name": "transcript-to-shortlist",
+    "description": "Turn a call transcript or meeting recording (client call, internal kickoff, voice-memo dump) into a ranked creator shortlist \u2014 extract campaign requirements from the call, ask for what's missing, confirm, then run the full brief-to-shortlist casting flow. Use when the user pastes/uploads a transcript and wants creators found \u2014 \"find creators from this call\", \"shortlist from this transcript\", \"we discussed casting on this call\". Named creators in the call become lookalike seeds."
+  },
+  {
+    "name": "triangulated-casting",
+    "description": "Highest-confidence casting \u2014 run a written brief AND a lookalike off a known-good past performer, then intersect so creators in BOTH rank first. Use when the user has a brief AND names a creator who already worked well \u2014 \"cast this brief and find more like @X\", \"intersect the brief with lookalikes of our best performer\", or \"triangulate off [creator] and this brief\". Deliverable is a confidence-tiered shortlist. Needs BOTH; brief alone use brief-to-shortlist, seed alone use lookalike-ladder."
+  },
+  {
+    "name": "usage-pulse",
+    "description": "Internal CS skill \u2014 for one customer account, map what skills/workflows they COULD be running against their plan tier, then write a short \"3 things to try this week\" email with paste-ready prompts to drive activation and beat churn. Use when the user says \"usage pulse for <account>\", \"CS health check\", \"what should this account be using\", \"write an activation nudge\", or a CSM is prepping an account review. Deliverable is a per-account health read plus a ready-to-send email. v1 reads the billing/usage dashboard manually \u2014 no account-telemetry tool exists yet (wishlist item 5)."
+  },
+  {
+    "name": "vertical-briefing",
+    "description": "Write the quarterly \"state of creator pricing in [vertical]\" memo for a CMO/leadership audience \u2014 deal volume, value bands, deal-type mix, and recency signals from the Creatorland corpus, fully cited. Use when the user says \"quarterly briefing for Beauty\", \"state of creator pricing in [vertical]\", \"market update memo for the CMO\", or wants a recurring vertical market summary. For deltas vs a prior snapshot (\"what changed\"), use vertical-forecast-brief instead."
+  },
+  {
+    "name": "vertical-forecast-brief",
+    "description": "Recurring \"conditions report\" for a vertical \u2014 re-pull corpus aggregates, compare against stored prior snapshots, and report what the active_since-windowed data actually shows as deltas (\"recency signals warming in Fitness\"). Use when the user says \"what's changed in [vertical]\", \"vertical forecast\", \"conditions report\", \"deltas since last run\", or runs a scheduled vertical check. Stores a snapshot each run for next time. For a point-in-time portrait with no deltas, use vertical-briefing."
+  },
+  {
+    "name": "waterfall-casting",
+    "description": "Self-healing tiered casting \u2014 build a premium/mid/value (or macro/mid/micro) shortlist, reach tier-1 only first, then on a decline or Day-7 no-reply release that slot's budget and reach the next-best creator down the tiers until the role is filled or budget runs out. Use when the user says \"waterfall casting\", \"reach tier 1 then fall back\", \"auto-fallback to the next tier if they pass\", or \"tiered outreach with backfill\". Reaches a wave, advances on report-back; never promises a yes. Deliverable is the tiered plan + the wave's Reached table."
+  },
+  {
+    "name": "wrap-report-skeleton",
+    "description": "Scaffold a post-campaign wrap deck from a finished campaign's creator roster \u2014 re-profile each creator (current freshness, affiliations), pull the vertical benchmark for \"you paid X vs market median Y\" framing, and emit a wrap-deck skeleton with labeled placeholder slots for the customer's own performance metrics. Use when the user says \"wrap report\", \"campaign wrap\", \"post-campaign deck\", \"wrap deck for [campaign]\", or a campaign just ended and reporting is due."
+  },
+  {
+    "name": "zero-brief-discovery",
+    "description": "Cast with NO brief \u2014 start from just a brand name. Profile the brand's existing affiliated creators (pro affiliation data), lookalike off the best, and propose a \"based on who already works with you\" slate. Use when the user has only a brand, no brief or seed \u2014 \"who should [brand] work with\", \"find creators, we have no brief\", \"build a slate from scratch for [brand]\", or \"discover talent from our existing partners\". Deliverable is an affiliation-grounded discovery slate. Pro plan required."
+  }
+]
