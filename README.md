@@ -1,13 +1,22 @@
 # Creatorland plugin marketplace
 
-Plugins for [Claude Code](https://docs.claude.com/en/docs/claude-code) and Claude Cowork that connect the **Creatorland Data MCP** and install its companion skill catalog.
+Plugins that connect the **Creatorland Data MCP** and install its companion skill catalog, for [Claude Code](https://docs.claude.com/en/docs/claude-code), Claude Cowork, and [OpenAI Codex](https://developers.openai.com/codex). The same skills ship to both ecosystems from this one repo: a thin per-host manifest over a shared `skills/` catalog.
 
-## Install (customers)
+## Install (Claude Code / Cowork)
 
 ```
 /plugin marketplace add bmfla/claude-plugins
 /plugin install creatorland-data@creatorland
 ```
+
+## Install (Codex)
+
+```
+codex
+/plugins
+```
+
+Add the `creatorland` marketplace (this repo), then install **creatorland-data**. For the raw MCP connection without the skill catalog, add the server to `~/.codex/config.toml` instead.
 
 First tool call triggers OAuth sign-in to your Creatorland Data account. New here? Start at [mcp.creatorland.com](https://mcp.creatorland.com).
 

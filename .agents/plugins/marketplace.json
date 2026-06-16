@@ -1,0 +1,20 @@
+{
+  "name": "creatorland",
+  "interface": {
+    "displayName": "Creatorland"
+  },
+  "plugins": [
+    {
+      "name": "creatorland-data",
+      "source": {
+        "source": "local",
+        "path": "./plugins/creatorland-data"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
