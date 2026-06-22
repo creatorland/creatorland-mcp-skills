@@ -43,8 +43,13 @@ clarifying question ever.
    affiliations, note follower tier and freshness. 1 credit.
 
 2. **Rate benchmark** — `query_market_intelligence`
-   `{ mode: "rate", vertical: <vertical>, deal_type: <if specified>, quoted_rate: <if supplied> }`.
-   Rate mode floor: 10 brands / 50 deals. On refusal, run the Refusal
+   `{ mode: "rate", vertical: <vertical>, deal_type: <if specified>, quoted_rate: <if supplied>, creator_tier: <if the creator's follower tier is known> }`.
+   If you know the creator's follower size, pass `creator_tier` (emerging <1k,
+   nano 1k-10k, micro 10k-100k, mid 100k-500k, macro 500k-1M, mega 1M+) for a
+   size-scoped band — it needs a vertical, and a tier too thin to clear the
+   distinct-creator privacy floor auto-broadens (disclosed) to the all-tier
+   vertical band; surface that broadening in the scope line. Untiered rate mode
+   floor: 10 brands / 50 deals. On refusal, run the Refusal
    Recovery ladder in **thrifty form: max 2 rungs** (typically drop
    `deal_type`, then vertical-only), stop, and disclose the clearance level
    in the scope line. 5 credits per call including each retry.

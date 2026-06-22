@@ -49,7 +49,14 @@ vertical/deal-type share one market-intel call.
 
 2. **Group + benchmark once per group** — bucket creators by inferred
    vertical (× deal type if requested). For each distinct bucket:
-   `query_market_intelligence` `{ mode: "rate", vertical: <vertical>, deal_type: <if requested> }`
+   `query_market_intelligence` `{ mode: "rate", vertical: <vertical>, deal_type: <if requested>, creator_tier: <derive from each creator's follower count when known> }`
+   For each creator whose follower count you know (from the input list or a
+   profile lookup), derive `creator_tier` (emerging <1k / nano 1k-10k / micro
+   10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) so each row is banded
+   against same-size creators in its vertical. `creator_tier` requires a
+   vertical; a tier too thin for the distinct-creator privacy floor broadens
+   (disclosed) to the all-tier band — show the band level in that row's
+   provenance.
    — **wrapped in Refusal Recovery** (rate floor 10 brands / 50 deals).
    On refusal, walk the ladder, stop at first clearance, and record the
    clearance level for every creator in that bucket. 5 credits per bucket call
