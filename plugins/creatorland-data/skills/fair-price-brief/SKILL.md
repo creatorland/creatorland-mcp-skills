@@ -57,7 +57,13 @@ the harness exposes server prompts.
    tier framing). 1 credit.
 
 2. **Benchmark the quote** — `query_market_intelligence`
-   `{ mode: "rate", vertical: <inferred vertical>, deal_type: <mapped deal type>, quoted_rate: <fee in USD> }`
+   `{ mode: "rate", vertical: <inferred vertical>, deal_type: <mapped deal type>, quoted_rate: <fee in USD>, creator_tier: <if the creator's follower tier is known> }`
+   When the creator's follower size is known, add `creator_tier` (emerging <1k /
+   nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) so
+   the counter is benchmarked against same-size creators in the vertical — this
+   is the stronger comp. It requires a vertical; a tier too thin for the
+   distinct-creator privacy floor broadens (disclosed) to the all-tier band, so
+   note the clearance level in the memo's provenance line.
    — **wrapped in Refusal Recovery.** Rate mode enforces a privacy floor of
    10 brands / 50 deals; if the narrow slice refuses, walk the ladder
    (drop `deal_type` → drop `sub_category` → drop `active_since` → drop
