@@ -35,6 +35,27 @@ Rate mode: `quoted_rate` (USD) positions a quote within the range.
 Guardrails: min-N floors — market 5 brands/25 deals, rate 10 brands/50 deals.
 Thin slices come back **refused or broadened** — see Refusal Recovery.
 
+### `match_creators` — free (0 credits), pro/pilot only
+Phase 1 of bulk match-and-enrich. Input: `identifiers` (a flat array of mixed
+emails / phone numbers / social handles, auto-classified server-side; 25–50,000
+per call). Returns counts only — `{ submitted, matched, unmatched, duplicates,
+estimated_credits (= 3 × matched), balance, preview_token, expires_at }` — no
+per-identifier map and no profile data. The `preview_token` (charge window ~15
+min) freezes the matched set for a single-charge enrich. Bounded by a 25-item
+minimum batch (anti-probing) and a per-customer daily limit.
+
+### `enrich_matches` — 3 credits per matched creator, pro/pilot only
+Phase 2. Input: `{ preview_token, confirmed_credit_amount, cursor?, format? }`
+where `format` is `csv | json | jsonl`. `confirmed_credit_amount` MUST equal the
+token's `estimated_credits` and MUST come from a human confirmation — it is the
+spend gate, never auto-echoed. Charges once; partial-to-balance funds the
+affordable prefix and reports `unfunded`; a funded set over ~200 rows
+auto-delivers as a downloadable file via a ~24h signed URL, else inline pages of
+~100 (`cursor` pages the already-charged set for free). Entitlement
+`BULK_MATCH_ENRICH`; non-entitled plans get a refused upgrade envelope. The
+two-step, human-confirms-the-spend flow is documented in the `bulk-match-enrich`
+skill.
+
 ### Server-side prompts (use them — they're maintained with the server)
 `shortlist-from-brief`, `lookalike-search`, `fair-price-check`.
 
@@ -53,6 +74,8 @@ use these tools; outreach is an additive skill layer.
 |---|---:|
 | `get_creator_profile` | 1 |
 | `search_creators` | 2 |
+| `match_creators` (bulk match, free) | 0 |
+| `enrich_matches` | 3 per matched creator |
 | `query_market_intelligence` | 5 |
 | profile fan-out of N | 1×N |
 | `request_creator_connection` | 10 (one charge per creator, whole sequence) |

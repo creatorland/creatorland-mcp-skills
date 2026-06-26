@@ -17,6 +17,15 @@ prices, the nine conventions). This skill honors thrifty/thorough credit modes
 (${CLAUDE_PLUGIN_ROOT}/shared/credit-modes.md) and the Freshness Gate
 (${CLAUDE_PLUGIN_ROOT}/shared/freshness-gate.md).
 
+**When the roster's identifiers are NOT already known creators** — e.g. a raw
+CRM export or a contact list where you don't yet know which rows are creators —
+prefer the `bulk-match-enrich` skill instead: it matches the whole list for free
+first, shows the exact enrichment cost, and only charges for the rows that are
+creators. Use `roster-enricher` when the rows are already creators you simply
+want fuller data on (1 credit per row, every row); use `bulk-match-enrich` when
+you first need to find which rows are creators at all (free match, then 3 credits
+per matched creator).
+
 ## Inputs to collect
 
 - **The roster** (required) — CSV, spreadsheet, or pasted list. Identify the
