@@ -56,6 +56,28 @@ auto-delivers as a downloadable file via a ~24h signed URL, else inline pages of
 two-step, human-confirms-the-spend flow is documented in the `bulk-match-enrich`
 skill.
 
+### `get_audience_report` — 25 credits (pro), premium
+Verified third-party AUDIENCE report for one creator. Input:
+`{ platform: instagram|tiktok|youtube, handle? , source_user_id?, force_refresh? }`
+(supply `handle` OR `source_user_id`; prefer the stable `source_user_id` for a
+guaranteed cache hit). Cache-first: a fresh-enough report (within 30 days)
+re-serves at $0 vendor cost but bills the same 25 credits (the pooled cache is
+the moat); `force_refresh` forces a fresh paid pull. Output stamps
+`as_of {profile_updated}` and a coverage block. **Instagram-first coverage:**
+credibility / fake-follower % / audience brand-affinity are Instagram-only today;
+TikTok / YouTube return demographics + geo only. Pro entitlement
+`audience_reports`; gated behind a go-live master flag (refuses cleanly until on).
+Never returns or stores creator contact info (PII excluded structurally).
+
+### `check_audience_coverage` — free (0 credits)
+Cost preflight for audience reports. Input: `{ creators: [{ platform, handle?,
+source_user_id? }] }` (1–100). Reads the pooled cache (no spend) and returns
+`{ total, cached_free, needs_fresh, credits_per_report, estimated_credits,
+summary, items[] }` — i.e. "N cached (free), M fresh (≈X credits)". A cache hit
+needs the stable `source_user_id`; handle-only creators count as needs-fresh.
+Call this BEFORE `get_audience_report` on any roster so the human sees + confirms
+the spend.
+
 ### Server-side prompts (use them — they're maintained with the server)
 `shortlist-from-brief`, `lookalike-search`, `fair-price-check`.
 
@@ -76,6 +98,8 @@ use these tools; outreach is an additive skill layer.
 | `search_creators` | 2 |
 | `match_creators` (bulk match, free) | 0 |
 | `enrich_matches` | 3 per matched creator |
+| `get_audience_report` (premium, pro) | 25 (cache hit = same, pure margin) |
+| `check_audience_coverage` (cost preflight) | free |
 | `query_market_intelligence` | 5 |
 | profile fan-out of N | 1×N |
 | `request_creator_connection` | 10 (one charge per creator, whole sequence) |
