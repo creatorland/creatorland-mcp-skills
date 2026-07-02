@@ -25,12 +25,37 @@ request_creator_connection {
    | { "type": "email", "email": "<brand-supplied addr>", "display_name": "<required>" }>,
   "opportunity": {
     "campaign_type": "<required>",
+    "archetype": "<opt: casting|product_gift|partner_promo|event_invite|paid_collab>",
+    "offer": { "what": "<required with new archetypes>", "value": "<opt>", "expiry": "<opt>", "redemption": "<opt>" },
+    "ask": "<what the creator is asked to do; required for gift/promo archetypes>",
+    "exclusions": "<opt: what this campaign is NOT>",
+    "proof_links": ["<opt: voucher/proof URLs — registered to THIS campaign's link allowlist>"],
     "deliverables": "<opt>", "comp_tags": ["<opt>"], "budget_band": "<opt>",
-    "timeline": "<opt>", "brief_context": "<opt>", "personal_message": "<opt>"
+    "timeline": "<opt>", "brief_context": "<opt: sender-supplied copy, used as source material only>",
+    "personal_message": "<opt>"
   },
+  "brand": { "name": "<org>", "represented_by": "<person>" },
   "send_connection_request": true
 }
 ```
+
+**The structured brief (archetypes).** Three archetypes beyond casting and
+product gifting: `partner_promo` (a partner perk/voucher), `event_invite`, and
+`paid_collab` (affiliate/ambassador/UGC). New archetypes REQUIRE the
+on-behalf-of identity (`brand.name` + `brand.represented_by`) and a structured
+`offer.what`; missing fields come back as question-shaped validation errors —
+relay them to the user verbatim. The matchmaker composes the subject and body
+from the brief under fixed rules (neutral middleman, no masquerade, no
+invented claims); sender-supplied copy is source material, never sent verbatim.
+
+**Preview before launch.** `POST {MCP_BASE}/outreach/preview` with
+`{creator_display_name?, opportunity, brand}` renders the exact touch-1 email
+(composed, or the vetted template floor) with zero side effects — nothing
+queued, sent, or charged. Use `campaign-designer` for the full guided setup.
+
+**First-campaign review gate.** A sender's first campaign holds in
+`pending_first_campaign_review` until Creatorland clears it (usually same-day);
+later campaigns send without the gate. Tell first-time senders up front.
 - A repeat request to a creator **already in an ACTIVE sequence for this brand**
   is refused and **NOT charged** — track the existing one via `get_connection_status`.
 - 10 credits cover the whole sequence + reply monitoring + the intro. Never per-email.
