@@ -74,10 +74,14 @@ privacy invariants). This skill honors thrifty/thorough credit modes
 
 4. **Build the opportunity + budget_band** — `campaign_type` from input. Fill
    `budget_band` from a corpus rate band via `query_market_intelligence`
-   `{ "mode": "rate", "vertical": "<inferred>", "deal_type": "<if known>" }` —
+   `{ "mode": "rate", "vertical": "<inferred>", "deal_type": "<if known>", "creator_tier": "<the reach set's tier, if it clusters at one>" }` —
    wrapped in Refusal Recovery — so the pitch is market-credible, not a lowball.
-   5 credits (skip in thrifty; reach without `budget_band` and say so). Keep
-   `personal_message` brand-authored.
+   When the clean reach set clusters at a creator tier, pass `creator_tier`
+   (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) for a
+   size-scoped band; when tier is mixed or unknown keep the vertical-wide band
+   as the fallback (a too-thin tier auto-broadens, disclosed). 5 credits (skip
+   in thrifty; reach without `budget_band` and say so). Keep `personal_message`
+   brand-authored.
 
 5. **Credit estimate + confirm (mandatory before any reach).** Let K = the
    CLEAN, suppression-cleared set. Reaching K creators = **10×K credits**.

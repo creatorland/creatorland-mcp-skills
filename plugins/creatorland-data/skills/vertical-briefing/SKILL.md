@@ -57,7 +57,11 @@ each, including each ladder retry.
    `{ mode: "rate", vertical: <vertical> }`
    → p25/median/p75 for the vertical. In thorough mode, add one
    `{ mode: "rate", vertical: <vertical>, deal_type: <dominant type from step 1> }`
-   for the headline deal type.
+   for the headline deal type. Optionally add `creator_tier`
+   (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) to get a
+   tier-specific band; omit it (the default) for the vertical-wide band. A
+   tier too thin for the privacy floor auto-broadens (disclosed) to the
+   all-tier band.
 
 4. **Sub-category cuts (thorough only)** — for each requested sub-category:
    `{ mode: "market", vertical: <vertical>, sub_category: <sub> }`. Expect

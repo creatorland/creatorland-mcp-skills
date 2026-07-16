@@ -113,8 +113,11 @@ campaign vertical (usually one), **wrapped in Refusal Recovery** (market-mode
 floor 5 brands / 25 deals; rate-mode floor 10 brands / 50 deals):
 `{ "mode": "market", "vertical": "<campaign vertical>" }` for the activity/
 engagement context band, and in thorough mode also
-`{ "mode": "rate", "vertical": "<vertical>", "deal_type": "<if known>" }`.
-This gives each creator's account-level numbers a "vs market" band so a
+`{ "mode": "rate", "vertical": "<vertical>", "deal_type": "<if known>", "creator_tier": "<the monitored roster's tier, if it shares one>" }`.
+When the connected roster shares a creator tier, pass `creator_tier`
+(emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) so the band is size-scoped;
+when tiers are mixed keep the vertical-wide band as the fallback (a too-thin
+tier auto-broadens, disclosed). This gives each creator's account-level numbers a "vs market" band so a
 follower or engagement figure reads against the vertical norm, not in a
 vacuum. Walk the ladder on refusal, stop at first clearance, and **disclose
 the clearance level** in the footer ("a privacy feature of the data source,

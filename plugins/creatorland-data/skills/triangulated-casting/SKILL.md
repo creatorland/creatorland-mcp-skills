@@ -106,11 +106,15 @@ say conflict checking was unavailable and why; never silently skip.
 `query_market_intelligence`, wrapped in Refusal Recovery:
 
 ```json
-query_market_intelligence { "mode": "rate", "vertical": "<the slate's vertical>" }
+query_market_intelligence { "mode": "rate", "vertical": "<the slate's vertical>", "creator_tier": "<the slate's target tier, if it clusters at one>" }
 ```
 
 Walk the ladder on refusal (thorough: until clearance; thrifty: max 2 rungs);
-disclose clearance level.
+disclose clearance level. When the slate clusters at a creator tier, pass
+`creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) for a
+size-scoped band; when tier is mixed or unknown keep the vertical-wide band as
+the fallback and say so (a tier too thin for the privacy floor auto-broadens,
+disclosed, to the all-tier band).
 
 **Step 8 — Rank.** In-both creators rank above singles by construction; within
 each bucket, rank on brief-fit and freshness, penalizing conflicts.

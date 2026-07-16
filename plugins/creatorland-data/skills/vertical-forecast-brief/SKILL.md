@@ -46,6 +46,11 @@ rate floor 10/50). 5 credits each incl. retries.
    - `{ mode: "market", vertical: <vertical>, active_since: "<window start>" }`
      — recent activity (the "recency signal").
    - `{ mode: "rate", vertical: <vertical> }` — pricing band.
+   Optionally scope the pricing band to a tier by adding `creator_tier`
+   (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+); omit it (the
+   default) for the vertical-wide band. Comparability across snapshots requires
+   holding tier constant — pick tiered or vertical-wide once and keep it the
+   same every run, or the delta is not meaningful.
    On any refusal, ladder and record the clearance level; a metric that
    cleared at a different level than last run is NOT comparable — flag it as
    "scope changed, delta not meaningful" rather than diffing across scopes.
