@@ -106,7 +106,7 @@ Beauty is dense and will clear the floor; if it somehow refuses, follow
 Refusal Recovery, disclose in one friendly sentence, and move on. This call
 is pro-gated — on a free workspace it returns a machine-readable **`upgrade`
 envelope** rather than an error; read it back as "market intelligence is
-available on Pro — here's what it unlocks" (link the $199/mo Pro framing), then
+available on Pro — here's what it unlocks" (link the Pro upgrade framing — pricing per `shared/conventions.md`), then
 continue to Step 4. Frame it as an unlock, never as "not available."
 
 ### Step 4 — Your first real shortlist (0 credits until they say go)
@@ -138,7 +138,7 @@ doesn't continue to Step 4):
 | get_creator_profile | Deep-dive one creator (freshness, affiliations*) | 1 cr | <one-line note> |
 | query_market_intelligence | Market stats & rate benchmarks (pro) | 5 cr | <stat + provenance line verbatim> |
 
-*Affiliations and market intelligence are pro-plan features ($199/mo, 5,000 credits).
+*Brand affiliations are available on every plan (including free); market intelligence is a Pro feature. See `shared/conventions.md` for plan pricing and the monthly credit grant.
 
 Next step: paste a brief → your first shortlist.
 
