@@ -7,7 +7,7 @@ credit-predictable. Skills reference this file and the shared modules with
 
 ## The tool surface (ground truth — match these exactly)
 
-Server: `creatorland-data` (remote MCP, `https://mcp-server-609509006565.us-central1.run.app/mcp`, OAuth).
+Server: `creatorland-data` (remote MCP, `https://data-mcp.creatorland.com/mcp`, OAuth).
 
 ### `search_creators` — 2 credits
 Discriminated on `mode`:
@@ -25,7 +25,7 @@ Discriminated on `mode`:
 Input: `{ identifier: { type, ... } }` — exactly one of five types:
 `social_handle`, `creatorland_user_id`, `source_user`, `email`, `phone`.
 Returns profile incl. interests, hashtags, audience geo, **data freshness**,
-and (pro plan) brand affiliations.
+and brand affiliations (available on every plan, including free).
 
 ### `query_market_intelligence` — 5 credits (pro)
 `mode: "market"` (counts/distributions) or `"rate"` (fair-price range).
@@ -35,7 +35,7 @@ Rate mode: `quoted_rate` (USD) positions a quote within the range.
 Guardrails: min-N floors — market 5 brands/25 deals, rate 10 brands/50 deals.
 Thin slices come back **refused or broadened** — see Refusal Recovery.
 
-### `match_creators` — free (0 credits), pro/pilot only
+### `match_creators` — free (0 credits), all plans
 Phase 1 of bulk match-and-enrich. Input: `identifiers` (a flat array of mixed
 emails / phone numbers / social handles, auto-classified server-side; 25–50,000
 per call). Returns counts only — `{ submitted, matched, unmatched, duplicates,
@@ -106,7 +106,7 @@ use these tools; outreach is an additive skill layer.
 | `get_connection_status` / `list_connections` | free |
 | reaching N creators | 10×N |
 
-Pro = $199/mo, 5,000 credits. Free tier = discovery only, small grant.
+Pro = $199/mo, 2,000 credits/mo (metered — credit packs cover overage). Free tier = all read tools, 250 credits/mo (then an upgrade wall).
 
 ## The conventions
 
