@@ -58,7 +58,9 @@ the missed candidates) and the alternate search becomes advisory-only.
 pick's **brand affiliations** (pro) to them. Overlaps → risk-appendix flags,
 honestly framed: **"conflict found in our corpus"**, never "no conflicts" for
 clean picks (affiliation data is corpus-derived, not exhaustive). If
-affiliations are absent (free plan), say the screen was unavailable.
+affiliations are absent (free plan), the tool returns a machine-readable
+`upgrade` envelope — say the conflict screen is **available on Pro / upgrade to
+unlock**, never "not available" or that the data is missing.
 
 **Step 5 — Write the critique** (no tool calls) — the appendix below. The
 tone is critical by design: surface real risks, don't reassure.
@@ -83,8 +85,8 @@ list; or "None.">
 ## Conflicts (corpus-derived)
 <picks affiliated with named competitors — "⚠ @x shows a <brand> affiliation
 in our corpus"; or "No conflicts found in our corpus" (NOT "no conflicts" —
-the corpus is not exhaustive). If unavailable: "Conflict screen unavailable
-on this plan.">
+the corpus is not exhaustive). If plan-gated: "Conflict screen available on
+Pro — upgrade to unlock" (never "unavailable" or "not available").>
 
 ## Talent the first pass may have missed
 <creators from the alternate-phrasing search not on the original list, with

@@ -90,7 +90,13 @@ Never ask twice for anything the brief already states — quote it back instead.
    connection-flow `opportunity` shape, with `budget_band` set to the corpus band as
    a **market range string** (p25–p75), labeled with the vertical and tier framing —
    never a single number, never "this creator's rate". Leave unstated fields empty;
-   leave `personal_message` for the brand. The credit estimate fires only if a deep
+   leave `personal_message` for the brand. When the offer is a promo/gifting/event/collab
+   rather than a plain casting, carry the **structured brief** into the same object —
+   `archetype` (`casting|product_gift|partner_promo|event_invite|paid_collab`), an
+   `offer` (`{what, value, expiry, redemption}`), and the on-behalf-of `brand`
+   (`{name, represented_by}`) — following the schema and required-field rules in
+   `connection-flow.md` (the new archetypes require `brand` + `offer.what`); this
+   skill still only fills `budget_band`, it doesn't invent offer terms. The credit estimate fires only if a deep
    refusal ladder would push the run past ~30 credits (rare — it would take a 5-rung
    ladder).
 

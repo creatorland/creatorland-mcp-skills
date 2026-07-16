@@ -95,7 +95,9 @@ thrifty.
 **Step 4 — Run the draft (interactive, no new tool calls per round unless the
 room asks).** For each round:
 1. Present the slot, the 3–4 contenders for that tier (with one-line vibe fit,
-   audience geo, freshness tag), and the tier's budget-pressure note from the
+   audience geo, freshness tag, and — on paid plans — the creator's `avatar`
+   headshot fronting each contender card, falling back to initials when
+   `avatar` is `null`/free), and the tier's budget-pressure note from the
    band ("mid-tier in this vertical transacts ~$<median> — three slots left,
    budget tightening").
 2. The room picks. Lock it onto the roster.

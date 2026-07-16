@@ -15,11 +15,27 @@ Discriminated on `mode`:
   (at least one signal required). `filters`: `platform`
   (`instagram|tiktok|youtube|twitter|twitch`), `niche`, `country`, `city`,
   `min_followers`, `max_followers`, `interests[]`, `hashtags[]`,
-  `brand_affinities[]`, `is_verified`, `min_engagement_rate` (0–1).
+  `brand_affinities[]`, `is_verified`, `min_engagement_rate` (0–1),
+  `audience_country` (+ `min_audience_country_share`, 0–1),
+  `data_freshness_days`, `content_format` (`personality_led|faceless_clip`).
   `limit` 1–150 (default 25), `precision` `broad|balanced|tight`.
 - **`mode: "lookalike"`** — exactly one of `seed_creator` (an identifier, see
   below) or `seed_content` (`{url}` or `{source_post_id[, source_collection]}`).
   Same `limit`/`precision`. Inference-free (uses stored embeddings).
+
+Result rows carry a **paid-gated `avatar { url, source }`** (pro/pilot/internal;
+`null` on free/demo) alongside the match signals — use it to enrich creator
+cards, degrading to initials when it's `null`.
+
+> **GA hard-gated filters (live, all plans):** `audience_country` (+
+> `min_audience_country_share`, 0–1) gates on where a creator's *audience* is —
+> distinct from `country`/`city`, which gate on where the creator is based;
+> `data_freshness_days` gates on how recently the record was synced;
+> `content_format` (`personality_led|faceless_clip`) gates on on-camera vs
+> faceless/clip style. All three are **hard gates** — they filter the pool and
+> add no rank score, so pass them only when the brief genuinely requires the
+> constraint, not as soft preferences. (These are separate from the internal-only
+> first-party filters below.)
 
 > **Internal-only rollout (CRE-1046, not GA):** the first-party search filters
 > (`has_first_party_insights`, `min_first_party_engagement_rate`,
@@ -31,7 +47,9 @@ Discriminated on `mode`:
 Input: `{ identifier: { type, ... } }` — exactly one of five types:
 `social_handle`, `creatorland_user_id`, `source_user`, `email`, `phone`.
 Returns profile incl. interests, hashtags, audience geo, **data freshness**,
-and brand affiliations (available on every plan, including free).
+and brand affiliations (available on every plan, including free). Paid plans
+(pro/pilot/internal) also return **`avatar { url, source }`**; free/demo plans
+get `avatar: null`.
 
 ### `query_market_intelligence` — 5 credits (pro)
 `mode: "market"` (counts/distributions) or `"rate"` (fair-price range).

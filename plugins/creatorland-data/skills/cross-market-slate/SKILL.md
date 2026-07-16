@@ -50,14 +50,21 @@ search_creators {
     "city": "<if specified>",
     "platform": "<if the concept names one>",
     "min_followers": <tier floor if set>,
-    "max_followers": <tier ceiling if set>
+    "max_followers": <tier ceiling if set>,
+    "audience_country": "<this market — use INSTEAD OF/alongside country when the ask is reach-in-market (audience located here), not creator location; pair with min_audience_country_share>",
+    "data_freshness_days": <if the slate wants recently-active creators per market>,
+    "content_format": "<personality_led | faceless_clip — if the concept implies a format>"
   },
   "limit": <2× per-market slate size>,
   "precision": "balanced"
 }
 ```
 
-`country` is the per-market differentiator; everything else is held constant
+`country` (creator location) is the per-market differentiator by default;
+when the campaign's real ask is **reach in-market** rather than a locally-based
+creator, use `audience_country` (+ `min_audience_country_share`) as the
+per-market axis instead — creators whose *audience* skews to that market. Both
+are advisory hard gates; everything else is held constant
 so markets are comparable. Thorough: limit = 2× slate size per market.
 Thrifty: limit = slate size, precision `"tight"`.
 

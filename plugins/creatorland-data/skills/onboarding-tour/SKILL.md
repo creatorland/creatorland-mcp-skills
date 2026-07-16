@@ -78,7 +78,10 @@ Point at two fields by name:
   It's what powers conflict checks before you pitch."
 
 Whichever tier the workspace is on, say so honestly: if affiliations came
-back, show one; if gated, say that's the pro unlock, not an error.
+back, show one; if gated, say that's the pro unlock, not an error. A plan-gated
+call returns a machine-readable **`upgrade` envelope** ("available on Pro") — a
+successful, structured response, not a failure — so frame it as "available on
+Pro / upgrade to unlock," never "not available" or "impossible."
 
 ### Step 3 — Market intelligence (5 credits)
 
@@ -101,9 +104,10 @@ Narrate two things, one sentence each:
 
 Beauty is dense and will clear the floor; if it somehow refuses, follow
 Refusal Recovery, disclose in one friendly sentence, and move on. This call
-is pro-gated — on a free workspace, show the gate message and frame it as
-"this is the pro tier; here's what it looks like" (link the $199/mo, 5,000
-credits framing), then continue to Step 4.
+is pro-gated — on a free workspace it returns a machine-readable **`upgrade`
+envelope** rather than an error; read it back as "market intelligence is
+available on Pro — here's what it unlocks" (link the $199/mo Pro framing), then
+continue to Step 4. Frame it as an unlock, never as "not available."
 
 ### Step 4 — Your first real shortlist (0 credits until they say go)
 
@@ -150,8 +154,9 @@ adjusted if a call was gated or retried.
 - Never present the Beauty market stat as anything other than vertical-level;
   keep the provenance line verbatim.
 - If affiliations or market intel are tier-gated, that's a feature
-  demonstration, not a failure — never apologize for it or imply the data is
-  missing.
+  demonstration, not a failure — the gate returns a machine-readable `upgrade`
+  envelope, so frame it as "available on Pro / upgrade to unlock," never
+  apologize for it or imply the data is missing or "not available."
 - PII discipline: if asked "how do I contact these creators," say the MCP
   never returns contact info; route to Creatorland connections (coming soon)
   or the creator's public profiles.

@@ -53,7 +53,10 @@ search_creators {
     "country": "<if scoped>",
     "niche": "<if clean>",
     "min_followers": <if a tier floor applies>,
-    "max_followers": <if a tier ceiling applies>
+    "max_followers": <if a tier ceiling applies>,
+    "audience_country": "<only when the program targets an audience-in-market>",
+    "data_freshness_days": <only when the program wants recently-active creators>,
+    "content_format": "<personality_led | faceless_clip — only when the program implies a format>"
   },
   "limit": 150,
   "precision": "broad"
@@ -63,6 +66,12 @@ search_creators {
 Use `precision: "broad"` for maximum recall (this is a longlist, not a
 precision cut). Thorough: 4–5 phrasings at limit 150. Thrifty: 2–3 phrasings,
 limit ≈ target size, precision `"balanced"`.
+
+Hold the GA hard-gated filters (`audience_country` + `min_audience_country_share`,
+`data_freshness_days`, `content_format`) constant across every phrasing when the
+program requires them — they filter the pool and add no rank, so applying them
+unevenly would skew the merged longlist. Advisory: add them only when the program
+truly calls for audience-in-market, recency, or a specific content format.
 
 **Step 2 — Merge + dedupe (no tool call).** Pool all results; dedupe on creator
 identity (same creator from two phrasings = one row). Record **how many
@@ -120,7 +129,8 @@ enriched head, "unverified" rows carry search-result data only>
 
 ## Verified head (enriched)
 <for the profiled top slice: a compact note per creator — audience geo,
-freshness — so the team starts working from the most-vetted rows>
+freshness, and a paid-plan avatar (`avatar { url, source }`, `null` on
+free/demo) so the team can eyeball the most-vetted rows; initials when null>
 
 ## Re-verify before pitch
 <stale creators among the enriched head; or "None among the verified head.">

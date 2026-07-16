@@ -42,7 +42,7 @@ privacy invariants). This skill honors thrifty/thorough credit modes
   it). Collect optional `deliverables`, `comp_tags`, `timeline`,
   `brief_context`, and a **brand-authored** `personal_message` if offered —
   never invent quotes. `budget_band` is filled from a corpus rate band in the
-  pre-flight (step 4), not asked.
+  pre-flight (step 4), not asked. For a promo/gifting/event/collab (not a plain casting), also collect the **structured brief** — `archetype` (`casting|product_gift|partner_promo|event_invite|paid_collab`), an `offer` (`{what, value, expiry, redemption}`), and the on-behalf-of `brand` (`{name, represented_by}`) — per the schema and required-field rules in `connection-flow.md` (the new archetypes require `brand` + `offer.what`; don't restate the schema here, reference it).
 - **Credit mode** — default `thorough`; `thrifty` on the standard triggers.
 
 ## Flow

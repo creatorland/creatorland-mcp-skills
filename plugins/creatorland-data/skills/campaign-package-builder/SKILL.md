@@ -87,7 +87,8 @@ Creatorland corpus; candidates from per-archetype searches; budget split from
 corpus rate bands. Per-target caveats noted in each section.
 
 ## 1 · Destination (target audience)
-<Per archetype — convention 9 sections:>
+<Per archetype — convention 9 sections; on paid plans front each candidate card
+with the creator's `avatar { url, source }` headshot, initials fallback when null/free:>
 ### Archetype A — <description>
 Candidates: @h1 (<fit>, <fresh/aging>, [exact/adjacent fit]) … 
 ### Archetype B — <description>
