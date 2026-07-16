@@ -40,7 +40,7 @@ thrifty/thorough contract this skill enforces).
 | `query_market_intelligence` (each call AND each refusal-ladder retry) | 5 | $0.125 |
 | profile fan-out of N | 1×N | $0.025×N |
 
-Pro plan = 2,000 credits / $199 mo (metered; packs cover overage). Pack price = $25 / 1,000 credits.
+Pro grant, price, and pack pricing are defined in `${CLAUDE_PLUGIN_ROOT}/shared/conventions.md` — budget against your plan's monthly credit grant there, never a hardcoded number.
 
 ## Flow
 
@@ -99,7 +99,7 @@ say "go" to run thorough, or "thrifty" for the lean path.
 | 2 | Acme Q3 price | fair-price-brief | 11 | 16 | $0.40 | +1 refusal-ladder rung |
 | | | **Session total** | **33** | **36** | **$0.90** | |
 
-Plan balance: <if pro> ~<5000 − running total> of 5,000 monthly credits left.
+Plan balance: <if pro> ~<monthly Pro grant − running total> of the monthly Pro credit grant left (grant per `shared/conventions.md`).
 Estimate accuracy this session: <actual vs est delta, with the one-line reason>.
 ```
 

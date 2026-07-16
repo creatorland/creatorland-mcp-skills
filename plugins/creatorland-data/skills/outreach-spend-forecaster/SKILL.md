@@ -54,7 +54,7 @@ Never ask for anything the session already has (the list, the count, the label).
 
 A creator already in an **active sequence for this brand** is refused and **NOT
 charged** on a repeat request — so they must be netted *out* of a forecast, not
-counted. Pro plan = 2,000 credits / $199 mo (metered; packs cover overage); pack = $25 / 1,000 credits.
+counted. See `${CLAUDE_PLUGIN_ROOT}/shared/conventions.md` for the current Pro grant and pack pricing.
 
 ## Flow
 
@@ -149,7 +149,7 @@ Next batch of <m> would cross your <T>-credit guard — confirm before firing.
 |---|---:|---:|---:|---|
 | <label> | <N reached> | <credits> | <$> | <YYYY-MM-DD> |
 
-Plan balance: <if pro> ~<5000 − month-to-date outreach credits> of 5,000 left.
+Plan balance: <if pro> ~<monthly Pro grant − month-to-date outreach credits> of the monthly Pro credit grant left (grant per `shared/conventions.md`).
 Forecast vs actual: est <E> cr → actual <A> cr (<reason for any delta, e.g. "2 already-active, not charged">).
 ```
 
