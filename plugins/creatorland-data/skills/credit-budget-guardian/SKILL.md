@@ -40,7 +40,7 @@ thrifty/thorough contract this skill enforces).
 | `query_market_intelligence` (each call AND each refusal-ladder retry) | 5 | $0.125 |
 | profile fan-out of N | 1×N | $0.025×N |
 
-Pro-plan pricing, the monthly credit grant, and credit-pack pricing live in `shared/conventions.md` (single source of truth — see its "Plans" and "Credit price index" lines); reference those figures rather than restating them here.
+Pro plan = 2,000 credits / $199 mo (metered; packs cover overage). Pack price = $25 / 1,000 credits.
 
 ## Flow
 
