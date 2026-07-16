@@ -74,7 +74,11 @@ fabricated number, and a refused slice is simply not eligible to anchor a story.
    -> deal counts, deal-type mix, company-type spread.
 
 2. **Per-vertical pricing** — for each vertical:
-   `{ mode: "rate", vertical: <v> }` -> p25 / median / p75 band.
+   `{ mode: "rate", vertical: <v> }` -> p25 / median / p75 band. Optionally add
+   `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) to mine
+   a tier-specific contrast (e.g. "micro Beauty median up, macro flat"); omit
+   it (the default) for the vertical-wide band, and never diff a tiered band
+   against a vertical-wide one in the same story.
 
 3. **Recency slice (thorough)** — for each vertical:
    `{ mode: "market", vertical: <v>, active_since: "<recent window start>" }`

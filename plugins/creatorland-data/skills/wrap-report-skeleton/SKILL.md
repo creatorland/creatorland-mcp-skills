@@ -52,9 +52,13 @@ prices, the nine conventions). This skill honors thrifty/thorough credit modes
 
 3. **Benchmark the spend** — one `query_market_intelligence` per distinct
    vertical/deal-type in the campaign (usually one):
-   `{ "mode": "rate", "vertical": "<campaign vertical>", "deal_type": "<if known>" }`
+   `{ "mode": "rate", "vertical": "<campaign vertical>", "deal_type": "<if known>", "creator_tier": "<the ran creators' tier, if they share one>" }`
    — wrapped in Refusal Recovery (thorough: full ladder; thrifty: max 2
-   rungs), clearance level disclosed. This powers "you paid $X vs market
+   rungs), clearance level disclosed. When the creators who ran share a tier,
+   pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+   so the spend is benchmarked against same-size creators; when tiers are mixed
+   keep the vertical-wide band as the fallback and say so (a too-thin tier
+   auto-broadens, disclosed). This powers "you paid $X vs market
    median $Y" — corpus band vs actual spend, the wrap deck's most defensible
    slide. 5 credits per call incl. ladder retries. If a quoted per-creator
    fee should be positioned precisely, add `"quoted_rate": <USD>` on a

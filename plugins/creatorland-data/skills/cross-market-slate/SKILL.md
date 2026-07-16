@@ -90,12 +90,18 @@ go to "re-verify before pitch" (thrifty: may drop, noting counts).
 wrapped in Refusal Recovery:
 
 ```json
-query_market_intelligence { "mode": "rate", "vertical": "<the concept's vertical>" }
+query_market_intelligence { "mode": "rate", "vertical": "<the concept's vertical>", "creator_tier": "<the concept's target tier — if the brief names one or the candidate cut clusters at one>" }
 ```
 
 If refused, walk the ladder (thorough: until clearance; thrifty: max 2 rungs)
 and disclose the clearance level. One band, framed as cross-market context —
 the corpus has no per-market rate granularity, and the deliverable says so.
+
+When the concept targets a defined creator tier (or the candidate cut clusters
+at one), pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) for a
+size-scoped band; when tier is mixed or unknown keep the vertical-wide band as
+the fallback and say so. A tier too thin for the distinct-creator privacy floor
+auto-broadens (disclosed) to the all-tier band.
 
 ## Deliverable
 

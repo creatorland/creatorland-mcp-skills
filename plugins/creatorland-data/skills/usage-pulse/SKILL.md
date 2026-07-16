@@ -62,7 +62,10 @@ This skill is mostly reasoning, not tool calls.
 
 3. **Season one prompt with a live number (thorough only, optional)** — at most
    one `query_market_intelligence` `{ mode: "rate" | "market", vertical: <their
-   vertical> }` (5 credits, **wrapped in Refusal Recovery**) so a recommendation
+   vertical> }` (5 credits, **wrapped in Refusal Recovery**) — in rate mode you
+   may optionally add `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+   for a tier-specific hook, or omit it (the default) for the vertical-wide
+   band — so a recommendation
    can carry a real "median rate in your vertical is $X — here's the skill that
    uses it" hook. Skip in thrifty. Never imply this number is account-specific;
    it's a vertical market band (convention 2).

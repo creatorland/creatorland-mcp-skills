@@ -96,11 +96,15 @@ labels accordingly. Never pad a fuzzy match list silently.
 `query_market_intelligence`, wrapped in Refusal Recovery:
 
 ```json
-query_market_intelligence { "mode": "rate", "vertical": "<the interpreted vertical>" }
+query_market_intelligence { "mode": "rate", "vertical": "<the interpreted vertical>", "creator_tier": "<the vibe's target tier, if the candidates cluster at one>" }
 ```
 
 Walk the ladder on refusal (thorough: until clearance; thrifty: max 2 rungs);
-disclose clearance level.
+disclose clearance level. When the matched candidates cluster at a creator
+tier, pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+for a size-scoped band; when tier is mixed or unknown keep the vertical-wide
+band as the fallback and say so (a too-thin tier auto-broadens, disclosed, to
+the all-tier band).
 
 ## Deliverable
 

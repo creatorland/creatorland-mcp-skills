@@ -71,9 +71,13 @@ present slates on search signal only and say so. 1 credit each.
 pitch" per market.
 
 **Step 5 — Indicative rate band per target** — reuse the rate dimension:
-`query_market_intelligence { "mode": "rate", "vertical": "<target vertical>", "deal_type": "<if specified>" }`
+`query_market_intelligence { "mode": "rate", "vertical": "<target vertical>", "deal_type": "<if specified>", "creator_tier": "<the target's slate tier, if it clusters at one>" }`
 wrapped in Refusal Recovery (rate floor 10 brands / 50 deals). One band per
-distinct vertical/market — cited, vertical-level. 5 credits each.
+distinct vertical/market — cited. When the target's example slate clusters at a
+creator tier, pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+for a size-scoped band; when tier is mixed or unknown keep the vertical-level
+band as the fallback and say so (a too-thin tier auto-broadens, disclosed).
+5 credits each.
 
 **Step 6 — Assemble** (no tool calls) the per-market strategy document.
 

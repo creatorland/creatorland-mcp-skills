@@ -141,13 +141,20 @@ context, not per-creator pricing:
 query_market_intelligence {
   "mode": "rate",
   "vertical": "<the slate's inferred vertical>",
-  "deal_type": "<only if the brief specifies one>"
+  "deal_type": "<only if the brief specifies one>",
+  "creator_tier": "<the slate's target tier — if the brief names one or the finalists cluster at one>"
 }
 ```
 
 Wrapped in Refusal Recovery: if refused (rate floor: 10 brands / 50 deals),
 walk the ladder (thorough: until clearance; thrifty: max 2 rungs) and disclose
 the clearance level in the deliverable. Each rung is a fresh 5-credit call.
+
+When the brief names a creator tier (or the finalists cluster at one), pass
+`creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) so the band is
+scoped to same-size creators; when tier is mixed or unknown keep the
+vertical-wide band as the fallback and say so — a tier too thin for the
+distinct-creator privacy floor auto-broadens (disclosed) to the all-tier band.
 
 If the brief stated a budget, this rate band is how that budget is honored
 (convention 10): surface the band up front and flag which finalists sit inside

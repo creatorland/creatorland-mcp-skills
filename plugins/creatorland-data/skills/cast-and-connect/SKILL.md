@@ -92,11 +92,14 @@ Per `connection-flow.md`, all three gates, in order:
    dropped it), make **one** `query_market_intelligence` rate call now, wrapped
    in Refusal Recovery:
    ```json
-   query_market_intelligence { "mode": "rate", "vertical": "<slate vertical>", "deal_type": "<only if the campaign specifies one>" }
+   query_market_intelligence { "mode": "rate", "vertical": "<slate vertical>", "deal_type": "<only if the campaign specifies one>", "creator_tier": "<reuse the tier brief-to-shortlist scoped the band to, if any>" }
    ```
    Express `budget_band` as a market range (e.g. `"$2k–$5k (market p25–p75, Beauty vertical)"`),
-   never as a single number or a per-creator quote. Disclose any Refusal-Recovery
-   broadening at the clearance level.
+   never as a single number or a per-creator quote. If the slate clusters at a
+   creator tier, carry `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+   through so the band is size-scoped like the shortlist's; otherwise leave it
+   off for the vertical-wide band. Disclose any Refusal-Recovery broadening (or
+   a too-thin-tier auto-broaden) at the clearance level.
 3. **Credit estimate + explicit confirm.** Reaching N creators = **10×N
    credits**. State it and get an explicit yes before firing **any**
    `request_creator_connection`:
