@@ -46,9 +46,13 @@ prices, the nine conventions). This skill honors thrifty/thorough credit modes
    1 credit.
 
 2. **Benchmark position** — `query_market_intelligence`
-   `{ "mode": "rate", "vertical": "<creator's inferred primary vertical>" }`
+   `{ "mode": "rate", "vertical": "<creator's inferred primary vertical>", "creator_tier": "<the creator's follower tier, when known>" }`
    — wrapped in Refusal Recovery (rate floor 10 brands / 50 deals; thorough:
-   walk the ladder to clearance; thrifty: max 2 rungs). This positions the
+   walk the ladder to clearance; thrifty: max 2 rungs). When the creator's follower size
+   is known, pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+   so the band scopes to same-size creators — a truer read of where the
+   creator's tier sits; a tier too thin for the privacy floor broadens
+   (disclosed) to the all-tier band. This positions the
    creator's TIER within the vertical's market band — it is corpus context,
    never the creator's rate history. 5 credits per call incl. ladder retries.
 

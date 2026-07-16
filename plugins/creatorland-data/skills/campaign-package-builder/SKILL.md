@@ -46,9 +46,13 @@ and N per-target sections**, plus an overview.
    **each wrapped in Refusal Recovery**:
    - `{ mode: "market", vertical: <vertical> }` (floor 5/25) → which deal
      types are active (the "excursions") + deal-type mix.
-   - `{ mode: "rate", vertical: <vertical>, deal_type: <dominant or requested> }`
+   - `{ mode: "rate", vertical: <vertical>, deal_type: <dominant or requested>, creator_tier: <the accommodation (creator) tier being priced, when known — one call per tier> }`
      (floor 10/50) → the rate band that prices accommodation tiers and feeds
      the budget split.
+   When an accommodation tier's follower band is known, pass `creator_tier`
+   (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+   so each tier benchmarks against same-size creators; a tier too thin for the
+   floor broadens (disclosed) to the vertical band.
    Disclose clearance level on any broaden. 5 credits each incl. retries.
    Thrifty: the rate call only, max 2 ladder rungs.
 

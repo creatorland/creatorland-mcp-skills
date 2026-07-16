@@ -46,7 +46,10 @@ skill for brand tokens, fonts, and components so the microsite is on-brand.
 2. **Pull data per creator** (cache-first) — `get_audience_report`
    `{ platform, source_user_id | handle }` for each in scope (25 credits each,
    or $0 on a cache hit). Optionally `query_market_intelligence`
-   `{ mode: "rate", vertical }` per creator for a rate-band chip. Capture each
+   `{ mode: "rate", vertical, creator_tier }` per creator (derive `creator_tier`
+   from that creator's follower count — emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+ — so the chip scopes to
+   same-size creators; a tier too thin for the floor broadens, disclosed, to the
+   vertical band) for a rate-band chip. Capture each
    report's `as_of {profile_updated}` and `coverage` block.
 
 3. **Render the microsite** — ONE self-contained HTML artifact, Creatorland-

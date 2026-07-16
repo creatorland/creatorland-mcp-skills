@@ -67,12 +67,15 @@ limits, fewer alternates per round.
 the "budget pressure" framing for every round:
 
 ```json
-query_market_intelligence { "mode": "rate", "vertical": "<the concept's vertical>" }
+query_market_intelligence { "mode": "rate", "vertical": "<the concept's vertical>", "creator_tier": "<the roster slot tier you are pressuring — macro/mid/micro — when framing a specific slot>" }
 ```
 
 Walk the ladder on refusal (thorough: until clearance; thrifty: max 2 rungs);
-disclose clearance level. The band drives tier-pressure framing — it is
-vertical-level, never a per-creator price, and the board says so.
+disclose clearance level. When a roster slot's follower tier is known, `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+scopes the band to that tier's same-size creators (a tier too thin for the floor
+broadens, disclosed, to the vertical band); without it the band is vertical-level.
+Either way it drives tier-pressure framing — never a per-creator price, and the
+board says so.
 
 **Step 3 — Profile the board's contenders (Freshness Gate).** Profile the
 candidates that will be presented (not every search hit), using the returned
