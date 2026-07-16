@@ -75,11 +75,14 @@ _Creatorland Data · <date> · audience report as of <profile_updated>_
 **Audience coverage: <Instagram: full | TikTok/YouTube: demographics + geo only>**
 
 ## 1. Audience authenticity  ← lead with this
-**~<X>% of audience suspected fake** · credibility score <0–1> · class <normal/…>
+**~<X>% suspicious/fake followers** (bot/fake-flagged) · **~<Y>% mass followers** (real but low-value — accounts that follow thousands) · credibility score <0–1> · class <normal/…>
 Audience-type split: real <%> / suspicious <%> / mass-followers <%> / influencers <%>.
 **Verdict vs floor:** 🟢 real audience / 🔴 below credibility floor — <one line>.
 > Credibility & fake-follower % are **vendor-derived** (the audience-data
 > provider's score), surfaced here — not a Creatorland computation.
+> **fake-follower % counts suspicious/bot accounts only; mass-follower % is the
+> separate figure — real people who over-follow (low-value, not fake). Never
+> blend the two into one "fake" number.**
 > Instagram-only today; for TikTok/YouTube this section reads "not available".
 
 ## 2. Identity & reach
@@ -125,7 +128,9 @@ by design — no contact info in this report.
 - **Cost is confirmed, never silent.** The 25-credit pull happens only after
   the human says yes to the preflight; declining falls back to the free
   profile-only diligence.
-- **Lead with fake-follower %.** Section 1 is first and carries the verdict.
+- **Lead with authenticity.** Section 1 is first and carries the verdict —
+  surface fake-follower % (suspicious/bot) and mass-follower % (real but
+  low-value) as two distinct figures, never one blended "fake" number.
 - **Credibility is vendor-derived — labeled.** Never present the score as a
   Creatorland computation (it is the audience-data provider's).
 - **Instagram-first honesty.** For TikTok/YouTube, the credibility and audience

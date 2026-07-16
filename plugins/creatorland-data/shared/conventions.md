@@ -21,6 +21,12 @@ Discriminated on `mode`:
   below) or `seed_content` (`{url}` or `{source_post_id[, source_collection]}`).
   Same `limit`/`precision`. Inference-free (uses stored embeddings).
 
+> **Internal-only rollout (CRE-1046, not GA):** the first-party search filters
+> (`has_first_party_insights`, `min_first_party_engagement_rate`,
+> `audience_country_share`, `audience_age_bracket_share`, `audience_gender_share`)
+> and the `verified_insights` marker are granted to the `internal` plan ONLY —
+> do not advertise them to customers or instruct users to pass them yet.
+
 ### `get_creator_profile` — 1 credit
 Input: `{ identifier: { type, ... } }` — exactly one of five types:
 `social_handle`, `creatorland_user_id`, `source_user`, `email`, `phone`.
@@ -64,7 +70,8 @@ guaranteed cache hit). Cache-first: a fresh-enough report (within 30 days)
 re-serves at $0 vendor cost but bills the same 25 credits (the pooled cache is
 the moat); `force_refresh` forces a fresh paid pull. Output stamps
 `as_of {profile_updated}` and a coverage block. **Instagram-first coverage:**
-credibility / fake-follower % / audience brand-affinity are Instagram-only today;
+credibility / fake-follower % (suspicious/bot only) / mass-follower % (real but
+low-value) / audience brand-affinity are Instagram-only today;
 TikTok / YouTube return demographics + geo only. Pro entitlement
 `audience_reports`; gated behind a go-live master flag (refuses cleanly until on).
 Never returns or stores creator contact info (PII excluded structurally).
@@ -100,6 +107,7 @@ use these tools; outreach is an additive skill layer.
 | `enrich_matches` | 3 per matched creator |
 | `get_audience_report` (premium, pro) | 25 (cache hit = same, pure margin) |
 | `check_audience_coverage` (cost preflight) | free |
+| `get_member_content_stats` | 1 |
 | `query_market_intelligence` | 5 |
 | profile fan-out of N | 1×N |
 | `request_creator_connection` | 10 (one charge per creator, whole sequence) |
@@ -107,6 +115,8 @@ use these tools; outreach is an additive skill layer.
 | reaching N creators | 10×N |
 
 Pro = $199/mo, 2,000 credits/mo (metered — credit packs cover overage). Free tier = all read tools, 250 credits/mo (then an upgrade wall).
+
+Credit packs are **volume-tiered**, not a single flat pack: base $25 / 1,000 = $0.025/credit, dropping to ≈$0.02/credit at 10+ packs (~20% off). Higher-volume tiers exist; the base per-credit figure above still anchors estimates.
 
 ## The conventions
 

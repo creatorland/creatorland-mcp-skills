@@ -56,7 +56,8 @@ skill for brand tokens, fonts, and components so the microsite is on-brand.
    branded (use `creatorland-design` tokens), styled after the audience-report
    layout:
    - **Per-creator card/section:** avatar, handle, platform, followers, real
-     engagement rate, **fake-follower % + a red/green credibility badge**,
+     engagement rate, **fake-follower % (suspicious/bot) + mass-follower %
+     (real but low-value) + a red/green credibility badge**,
      audience age/gender charts, geo (top countries / US weight), top interests
      + audience brand-affinity, recent/top posts, and brand history.
    - **Roster view:** a clean grid/index with filters (tier, platform, audience
@@ -97,6 +98,9 @@ A single shareable Cowork HTML artifact:
   vendor cost), so say "<C> of <N> were free from cache" in the build summary.
 - **Credibility is vendor-derived — badge it.** Never imply the score is a
   Creatorland computation.
+- **Fake ≠ mass followers.** Two figures, not one: fake-follower % = suspicious/
+  bot accounts; mass-follower % = real people who over-follow (low-value, not
+  fake). Never merge them into a single "fake" number.
 - **Instagram-first honesty.** TikTok/YouTube cards show demographics + geo and
   state credibility / audience brand-affinity are "not available for this
   platform today" — never fabricated.
