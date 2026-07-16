@@ -1,8 +1,11 @@
 name: Skill drift guards
 
-# Anti-drift guards for the Creatorland Data MCP skills (epic CRE-1050).
-# Currently: fail the build if any individual skill hardcodes a plan-level
-# fact that must live only in shared/conventions.md (CRE-1052).
+# Anti-drift guards for the Creatorland Data MCP skills (epic CRE-1050):
+#   - fail the build if any individual skill hardcodes a plan-level fact that
+#     must live only in shared/conventions.md (CRE-1052);
+#   - fail the build if shared/conventions.md drifts from the vendored
+#     capability manifest (the SSOT snapshot) on plan / tool-cost / connect-URL
+#     facts (CRE-1055).
 
 on:
   pull_request:
@@ -24,3 +27,6 @@ jobs:
 
       - name: No hardcoded plan-level facts in individual skills
         run: node scripts/check-no-hardcoded-plan-facts.mjs
+
+      - name: conventions.md matches capability manifest
+        run: node scripts/check-conventions-matches-manifest.mjs
