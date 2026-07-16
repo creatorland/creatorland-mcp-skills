@@ -45,9 +45,12 @@ Never ask twice; never ask for what the conversation already holds.
    a defense built on a stale follower count is a liability. 1 credit.
 
 2. **Benchmark the band** — `query_market_intelligence`
-   `{ mode: "rate", vertical: <vertical>, deal_type: <mapped>, quoted_rate: <the ask> }`
+   `{ mode: "rate", vertical: <vertical>, deal_type: <mapped>, quoted_rate: <the ask>, creator_tier: <the creator's follower tier, if known> }`
    — **wrapped in Refusal Recovery** (rate floor 10 brands / 50 deals). The
-   `quoted_rate` positions the ask within the band ("your $X sits at ~pYY").
+   `quoted_rate` positions the ask within the band ("your $X sits at ~pYY"). When the
+   creator's follower size is known, pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) so the ask
+   benchmarks against same-size creators in the vertical — the stronger comp; a
+   tier too thin for the privacy floor broadens (disclosed) to the all-tier band.
    On refusal, walk the ladder, stop at first clearance, and disclose the
    level in the memo. Thrifty: max 2 rungs. 5 credits per call incl. retries.
 

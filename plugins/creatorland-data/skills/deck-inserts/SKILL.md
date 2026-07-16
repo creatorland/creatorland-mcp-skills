@@ -44,10 +44,13 @@ honors thrifty/thorough credit modes
    - Counts/distributions → `query_market_intelligence`
      `{ "mode": "market", "vertical": "<v>", "sub_category": "<if any>", "deal_type": "<if any>", "company_type": "<if any>", "active_since": "<ISO if any>" }`
    - Rate band → `query_market_intelligence`
-     `{ "mode": "rate", "vertical": "<v>", "deal_type": "<if any>" }`
+     `{ "mode": "rate", "vertical": "<v>", "deal_type": "<if any>", "creator_tier": "<if the requested stat is tier-specific>" }`
    **Wrapped in Refusal Recovery** (market floor 5 brands / 25 deals; rate
-   floor 10 brands / 50 deals). Walk the ladder (thorough: to clearance;
-   thrifty: max 2 rungs) and capture the clearance level — it becomes the
+   floor 10 brands / 50 deals). If the requested figure is tier-specific (e.g.
+   "median rate for micro beauty creators"), pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+   so the stat scopes to that follower tier; a tier too thin for the floor
+   broadens (disclosed) to the all-tier band. Walk the ladder (thorough: to
+   clearance; thrifty: max 2 rungs) and capture the clearance level — it becomes the
    benchmark-basis line in the insert. 5 credits per call incl. retries.
 
 2. **Capture the provenance verbatim.** Take the provenance line and recency

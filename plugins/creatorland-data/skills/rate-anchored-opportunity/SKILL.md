@@ -40,8 +40,10 @@ the connection tools). This skill honors thrifty/thorough credit modes
   `deal_type` (e.g. "sponsored_post", "affiliate"). Drives both the rate slice and
   the `campaign_type` field.
 - **Tier** (optional) — macro / mid / micro framing if the user has a follower band
-  in mind. Folded into how the band is labeled and into `comp_tags`; the corpus rate
-  band is vertical-level, so tier is a framing qualifier, not a separate query.
+  in mind. When given, it is passed as `creator_tier` on the rate call so the
+  `budget_band` scopes to same-size creators (a tier too thin for the privacy
+  floor broadens, disclosed, to the vertical band); it also labels the band and
+  feeds `comp_tags`.
 - **Campaign basics** (collect what's offered, default the rest) — `deliverables`
   (e.g. "1 Reel + 3 Stories"), `timeline`, `comp_tags` (e.g. usage rights,
   exclusivity, whitelisting), and a one-line `brief_context`. Anything the user
@@ -67,7 +69,8 @@ Never ask twice for anything the brief already states — quote it back instead.
    query_market_intelligence {
      "mode": "rate",
      "vertical": "<resolved vertical>",
-     "deal_type": "<resolved deal_type, only if the campaign specifies one>"
+     "deal_type": "<resolved deal_type, only if the campaign specifies one>",
+     "creator_tier": "<the offer's tier — macro/mid/micro — when the user gave a follower band>"
    }
    ```
    Rate mode enforces a privacy floor of **10 brands / 50 deals**. On a refusal (or
@@ -76,6 +79,10 @@ Never ask twice for anything the brief already states — quote it back instead.
    `company_type` → vertical only — and **stop at the first rung that clears the
    floor.** Record the clearance level for disclosure. Thrifty mode: at most 2
    rungs, then report what you have. 5 credits per call, including each ladder retry.
+   When the offer targets a known tier, pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+)
+   so the `budget_band` is a same-size band rather than the whole-vertical spread;
+   a tier too thin to clear the floor broadens (disclosed) to the vertical band —
+   surface that in the credibility line.
    No `quoted_rate` is passed — this skill builds a band for an offer, it is not
    positioning a number against the band (that's fair-price-brief).
 

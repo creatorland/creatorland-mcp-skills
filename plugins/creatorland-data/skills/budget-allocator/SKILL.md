@@ -42,13 +42,20 @@ Never ask twice; never ask for what the conversation already contains.
 1. **Benchmark tier economics** — `query_market_intelligence` calls in rate
    mode to establish per-deal value bands for the vertical, **each wrapped in
    Refusal Recovery** (rate-mode floor: 10 brands / 50 deals):
-   - `{ mode: "rate", vertical: <vertical>, deal_type: <if specified> }`
+   - `{ mode: "rate", vertical: <vertical>, deal_type: <if specified>, creator_tier: <the tier slot being priced — macro/mid/micro — one call per slot> }`
    - In thorough mode, optionally one `{ mode: "market", vertical: <vertical> }`
      call (floor: 5 brands / 25 deals) for deal-volume/deal-type-mix context
      that informs which deal types are actually active in this vertical.
 
-   IMPORTANT honesty constraint: the corpus returns **vertical/filter-level
-   bands**, not literal per-follower-tier price lists. Tier slots (macro/mid/
+   Pass `creator_tier` (emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+) for the
+   tier slot you are pricing so each slot benchmarks against same-size creators;
+   a slot whose tier is unknown or too thin for the privacy floor broadens
+   (disclosed) to the vertical band, and you position within it per the
+   constraint below.
+
+   IMPORTANT honesty constraint: where a tier is unknown or too thin to clear
+   the floor, the corpus returns **vertical/filter-level bands**, not literal
+   per-follower-tier price lists. Those tier slots (macro/mid/
    micro) are constructed by positioning within the returned band — macro
    slots planned near p75+, mid near median, micro near p25 — and the plan
    must label this method explicitly. If a refusal ladder broadened the

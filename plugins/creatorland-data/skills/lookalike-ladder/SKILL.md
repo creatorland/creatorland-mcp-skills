@@ -108,13 +108,16 @@ prices — pricing context comes from step 6 and is band-level only.
 ```json
 query_market_intelligence {
   "mode": "rate",
-  "vertical": "<seed's vertical from step 1>"
+  "vertical": "<seed's vertical from step 1>",
+  "creator_tier": "<the seed's follower tier — anchors the ladder; emerging <1k / nano 1k-10k / micro 10k-100k / mid 100k-500k / macro 500k-1M / mega 1M+>"
 }
 ```
 
 If refused (rate floor: 10 brands / 50 deals), walk the ladder per the module
 (thorough: until clearance; thrifty: max 2 rungs) and disclose the clearance
-level. The band frames the WHOLE vertical — rung-level price differences are
+level. When the seed's follower size is known, `creator_tier` scopes the band to the
+seed's tier as the ladder's anchor (a tier too thin for the floor broadens,
+disclosed, to the whole vertical); rung-level price differences are still
 follower-tier inference, never per-creator rates, and the deliverable says so.
 
 ## Deliverable
