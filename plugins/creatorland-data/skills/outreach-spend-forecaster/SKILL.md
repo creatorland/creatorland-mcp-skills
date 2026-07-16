@@ -54,7 +54,7 @@ Never ask for anything the session already has (the list, the count, the label).
 
 A creator already in an **active sequence for this brand** is refused and **NOT
 charged** on a repeat request — so they must be netted *out* of a forecast, not
-counted. Pro plan = 5,000 credits / $199 mo; pack = $25 / 1,000 credits.
+counted. Pro plan = 2,000 credits / $199 mo (metered; packs cover overage); pack = $25 / 1,000 credits.
 
 ## Flow
 
