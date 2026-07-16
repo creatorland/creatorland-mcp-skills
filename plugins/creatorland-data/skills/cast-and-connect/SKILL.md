@@ -41,7 +41,7 @@ degradation, privacy invariants). This skill honors thrifty/thorough credit mode
   it if the brief doesn't state it. Optional: `deliverables`, `comp_tags`,
   `timeline`, `brief_context`, and a brand-authored `personal_message`.
   `budget_band` is **auto-filled** from a corpus rate band (step 5 below) — do
-  not ask the user for it unless they want to override.
+  not ask the user for it unless they want to override. For a promo/gifting/event/collab (not a plain casting), also collect the **structured brief** — `archetype` (`casting|product_gift|partner_promo|event_invite|paid_collab`), an `offer` (`{what, value, expiry, redemption}`), and the on-behalf-of `brand` (`{name, represented_by}`) — per the schema and required-field rules in `connection-flow.md` (the new archetypes require `brand` + `offer.what`; don't restate the schema here, reference it).
 - **Credit mode** — default `thorough`; switch to `thrifty` on the trigger
   phrases in the credit-modes module.
 

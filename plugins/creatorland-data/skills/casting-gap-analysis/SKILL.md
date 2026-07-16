@@ -77,7 +77,10 @@ search_creators {
     "niche": "<gap niche, if niche gap>",
     "platform": "<gap platform, if platform gap>",
     "min_followers": <tier floor, if tier gap>,
-    "max_followers": <tier ceiling, if tier gap>
+    "max_followers": <tier ceiling, if tier gap>,
+    "audience_country": "<gap market, when the hole is audience-in-market rather than creator location — pair with min_audience_country_share>",
+    "data_freshness_days": <when the gap is a recency hole — 'we have no recently-active X'>,
+    "content_format": "<personality_led | faceless_clip — when the gap is a content-format hole>"
   },
   "limit": 8,
   "precision": "tight"
@@ -85,7 +88,14 @@ search_creators {
 ```
 
 Include only the filters that define the gap; at least one signal required
-when `filters` is passed. Thorough: search every identified gap. Thrifty: top
+when `filters` is passed. The GA hard-gated filters map cleanly onto gap types
+(advisory): use `audience_country` (+ `min_audience_country_share`) for an
+audience-in-market hole — distinct from a creator-location hole filled by
+`country` — `content_format` for a format hole, and `data_freshness_days` for a
+recency hole. Each is a hard gate, so if it empties a gap-fill search, relax it
+and note the gap is a coverage symptom (convention 12).
+
+Thorough: search every identified gap. Thrifty: top
 3 gaps only, and say which gaps went unsearched.
 
 **Step 5 — Thin-gap honesty (convention 8).** If a gap search returns few

@@ -86,7 +86,12 @@ search_creators {
 }
 ```
 
-or
+A saved scout can freeze the GA hard-gated filters too (`audience_country` +
+`min_audience_country_share` for a standing audience-in-market watch,
+`data_freshness_days`, `content_format`) — capture them verbatim in the scout
+state like any other filter so every re-run applies the same gate.
+
+Or a lookalike search:
 
 ```json
 search_creators {

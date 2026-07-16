@@ -55,7 +55,10 @@ skill for brand tokens, fonts, and components so the microsite is on-brand.
 3. **Render the microsite** — ONE self-contained HTML artifact, Creatorland-
    branded (use `creatorland-design` tokens), styled after the audience-report
    layout:
-   - **Per-creator card/section:** avatar, handle, platform, followers, real
+   - **Per-creator card/section:** avatar (the paid-plan `avatar { url, source }`
+     from `search_creators`/`get_creator_profile` — render the headshot when
+     `url` is present, and degrade gracefully to an initials monogram when it's
+     `null`, e.g. on free/demo plans), handle, platform, followers, real
      engagement rate, **fake-follower % (suspicious/bot) + mass-follower %
      (real but low-value) + a red/green credibility badge**,
      audience age/gender charts, geo (top countries / US weight), top interests

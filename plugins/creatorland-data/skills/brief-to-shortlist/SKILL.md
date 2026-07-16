@@ -83,7 +83,11 @@ search_creators {
     "max_followers": <tier ceiling — same rule; a "$3–5K/video" budget is a rate, not a size>,
     "niche": "<if cleanly stated>",
     "brand_affinities": ["<comp-set brands from step 0 when the brief names brands to match on>"],
-    "min_engagement_rate": <0–1, only if the brief sets a bar>
+    "min_engagement_rate": <0–1, only if the brief sets a bar>,
+    "audience_country": "<ISO country ONLY when the ask is audience-in-market — e.g. 'reach US audiences' — distinct from where the creator lives>",
+    "min_audience_country_share": <0–1, pair with audience_country when a minimum in-market share matters>,
+    "data_freshness_days": <e.g. 90, ONLY when recency matters — 'creators active recently'>,
+    "content_format": "<personality_led | faceless_clip — ONLY when the brief implies on-camera personality vs faceless/clip content>"
   },
   "limit": 24,
   "precision": "balanced"
@@ -100,6 +104,14 @@ more reliable than hoping `brief` text surfaces brand-adjacent creators
 semantically (convention 11). Never translate the campaign budget into
 `min_followers`/`max_followers` (convention 10) — the budget is handled by the
 rate call in step 5, not the search filters.
+
+The GA hard-gated filters (conventions §`search_creators`) are advisory, not
+mandatory — reach for them only when the brief calls for it: `audience_country`
+(+ `min_audience_country_share`) when the ask is audience-*in-market* (distinct
+from where the creator is based), `data_freshness_days` when recency matters, and
+`content_format` when the brief implies personality-led vs faceless/clip content.
+Each is a hard gate (filters the pool, no rank score), so don't over-constrain —
+if a gate empties the pool, relax it per convention 12 and say so.
 
 **If results come back thin, relax per convention 12** — broaden the binding
 constraint, not a satisfied one: if the user said "California", widen geo at
@@ -118,6 +130,11 @@ get_creator_profile { "identifier": { "type": "creatorland_user_id", "creatorlan
 `creatorland_user_id`, or `source_user` — exactly one type per call.)
 Thorough: profile every candidate from step 1. Thrifty: rank candidates on
 search-result signal first, profile only the top `shortlist size + 2`.
+
+On paid plans (pro/pilot/internal) both the search rows and each profile carry a
+paid-gated **`avatar { url, source }`**; free/demo plans get `avatar: null`. Keep
+the URL against each creator so the shortlist card can show a headshot — degrade
+gracefully to initials when it's `null`.
 
 **Credit estimate fires here.** Thorough at default size is 2 + 24 + 5 ≈ 31
 credits — over the ~30 threshold, so state the estimate before fanning out and
@@ -180,6 +197,7 @@ _Built from your brief, <date> · <N> creators · Creatorland Data_
 ## Shortlist (ranked)
 
 ### 1. <Name> — @<handle> (<platform>, <follower count>)
+<!-- when avatar.url is present (paid plans), render the headshot on the card; fall back to initials when null/free -->
 - **Why for this brief:** <2–3 sentences quoting the brief's language — "you asked for 'lo-fi kitchen energy'; her last-90-day grid is exactly that">
 - **Audience-geo fit:** <top geos vs. the brief's markets, e.g. "62% US / 14% UK — matches your US-first ask">
 - **Rate fit:** ✓ in your $<budget> band | ↑ likely above band | ↓ likely below band — vs. the slate rate band below (only when the brief gave a budget)

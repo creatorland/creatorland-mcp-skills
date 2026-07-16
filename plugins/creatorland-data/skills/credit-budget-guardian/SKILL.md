@@ -113,6 +113,12 @@ Estimate accuracy this session: <actual vs est delta, with the one-line reason>.
 - **Refusal-ladder rungs are real credits.** Each market-intel retry is a
   fresh 5-credit call — estimates must include a likely-rungs assumption and
   name it (thin verticals cost more).
+- **A plan gate is an upgrade, not a spend.** When a workflow includes a
+  pro-only tool (market intelligence, enrichment, connections) on a plan that
+  lacks it, the call returns a machine-readable **`upgrade` envelope** and costs
+  **0 credits** — nothing is charged for a gated call. Log it as "available on
+  Pro / upgrade to unlock" in the ledger, never as a failed or "unavailable"
+  line item.
 - **Estimates are estimates.** Actuals can exceed them (extra rungs, larger
   candidate sets); always reconcile estimate vs actual in the ledger so the
   user trusts the meter (credit-modes logging convention).

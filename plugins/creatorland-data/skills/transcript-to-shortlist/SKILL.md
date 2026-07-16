@@ -64,7 +64,12 @@ they drive rationale quality). Then:
 - **Brief-mode search** — exactly as Brief-to-Shortlist step 1, limit =
   2–3× shortlist size. If the call produced a positive comp set, pass it as
   the `brand_affinities` filter; do not turn the call's budget into
-  `min_followers`/`max_followers`.
+  `min_followers`/`max_followers`. Apply the GA hard-gated filters when the
+  call implies them (advisory, not mandatory): `content_format`
+  (`personality_led|faceless_clip`) if the call describes on-camera vs
+  faceless/clip content, `audience_country` (+ `min_audience_country_share`) if
+  the ask is audience-*in-market*, and `data_freshness_days` if someone stressed
+  recency ("who's been active lately").
 - **Lookalike search per named creator** (2 credits each), unioned with the
   brief-mode results before the profile fan-out:
 
@@ -108,7 +113,9 @@ Brief-to-Shortlist's deliverable, with two transcript-specific additions:
   slate as a lookalike of @<seed>, named on the call."
 
 All provenance/freshness/credit footers per the brief-to-shortlist template,
-with the credit breakdown including the lookalike searches (×2 each).
+with the credit breakdown including the lookalike searches (×2 each). Paid-plan
+creator avatars (`avatar { url, source }`, `null` on free/demo) flow through the
+delegated flow — show the headshot on each card when present, initials when not.
 
 ## Honesty rules
 
