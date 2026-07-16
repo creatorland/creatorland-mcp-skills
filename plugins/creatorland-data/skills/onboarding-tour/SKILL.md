@@ -138,7 +138,7 @@ doesn't continue to Step 4):
 | get_creator_profile | Deep-dive one creator (freshness, affiliations*) | 1 cr | <one-line note> |
 | query_market_intelligence | Market stats & rate benchmarks (pro) | 5 cr | <stat + provenance line verbatim> |
 
-*Affiliations and market intelligence are available on every plan (including free); Pro ($199/mo, 2,000 credits/mo, metered) raises the monthly credit ceiling and adds the paid tools (audience reports, bulk enrich, outreach, avatars).
+*Affiliations and market intelligence are available on every plan (including free); Pro raises the monthly credit ceiling and adds the paid tools (audience reports, bulk enrich, outreach, avatars) — see `${CLAUDE_PLUGIN_ROOT}/shared/conventions.md` for the current price and grant.
 
 Next step: paste a brief → your first shortlist.
 
