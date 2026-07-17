@@ -7,7 +7,7 @@ credit-predictable. Skills reference this file and the shared modules with
 
 ## The tool surface (ground truth — match these exactly)
 
-Server: `creatorland-data` (remote MCP, `https://data-mcp.creatorland.com/mcp`, OAuth).
+Server: `creatorland-data` (remote MCP, `https://mcp.creatorland.com/mcp`, OAuth).
 
 ### `search_creators` — 2 credits
 Discriminated on `mode`:

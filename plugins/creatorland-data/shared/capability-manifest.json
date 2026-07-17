@@ -1,0 +1,148 @@
+{
+  "manifest_version": 1,
+  "connect_url": "https://mcp.creatorland.com/mcp",
+  "resource_url": "https://data-mcp.creatorland.com/mcp",
+  "plans": [
+    {
+      "name": "free",
+      "monthly_credit_grant": 250,
+      "entitlements": [
+        "creator_discovery",
+        "market_intelligence",
+        "discovery_brand_affiliations",
+        "member_content_stats"
+      ]
+    },
+    {
+      "name": "pro",
+      "monthly_credit_grant": 2000,
+      "entitlements": [
+        "creator_discovery",
+        "market_intelligence",
+        "discovery_brand_affiliations",
+        "member_content_stats",
+        "creator_connections",
+        "avatar",
+        "bulk_match_enrich",
+        "audience_reports"
+      ]
+    },
+    {
+      "name": "pilot",
+      "monthly_credit_grant": null,
+      "entitlements": [
+        "creator_discovery",
+        "market_intelligence",
+        "discovery_brand_affiliations",
+        "member_content_stats",
+        "creator_connections",
+        "avatar",
+        "bulk_match_enrich"
+      ]
+    },
+    {
+      "name": "demo",
+      "monthly_credit_grant": null,
+      "entitlements": [
+        "creator_discovery",
+        "market_intelligence",
+        "discovery_brand_affiliations",
+        "member_content_stats"
+      ]
+    },
+    {
+      "name": "internal",
+      "monthly_credit_grant": null,
+      "entitlements": [
+        "creator_discovery",
+        "market_intelligence",
+        "discovery_brand_affiliations",
+        "member_content_stats",
+        "creator_connections",
+        "avatar",
+        "bulk_match_enrich",
+        "first_party_insights"
+      ]
+    }
+  ],
+  "tools": [
+    {
+      "name": "health",
+      "credits": 0
+    },
+    {
+      "name": "get_creator_profile",
+      "credits": 1,
+      "entitlement": "creator_discovery"
+    },
+    {
+      "name": "get_member_content_stats",
+      "credits": 1,
+      "entitlement": "member_content_stats"
+    },
+    {
+      "name": "search_creators",
+      "credits": 2,
+      "entitlement": "creator_discovery"
+    },
+    {
+      "name": "query_market_intelligence",
+      "credits": 5,
+      "entitlement": "market_intelligence"
+    },
+    {
+      "name": "request_creator_connection",
+      "credits": 10,
+      "entitlement": "creator_connections"
+    },
+    {
+      "name": "get_connection_status",
+      "credits": 0,
+      "entitlement": "creator_connections"
+    },
+    {
+      "name": "match_creators",
+      "credits": 0
+    },
+    {
+      "name": "enrich_matches",
+      "credits": 0,
+      "entitlement": "bulk_match_enrich"
+    },
+    {
+      "name": "list_connections",
+      "credits": 0,
+      "entitlement": "creator_connections"
+    },
+    {
+      "name": "get_audience_report",
+      "credits": 25,
+      "entitlement": "audience_reports"
+    },
+    {
+      "name": "check_audience_coverage",
+      "credits": 0
+    }
+  ],
+  "market_intelligence_floors": {
+    "general": {
+      "brands": 5,
+      "deals": 25
+    },
+    "rate": {
+      "brands": 10,
+      "deals": 50
+    },
+    "tier": {
+      "creators": 5,
+      "deals": 30
+    }
+  },
+  "data_shape_notes": [
+    "get_audience_report: `fake_follower_pct` = suspicious/bot followers; `mass_follower_pct` = real but low-value mass-following accounts. They are DISTINCT dimensions — never sum or conflate them.",
+    "search_creators / get_creator_profile: every creator carries a canonical `creatorland_url` deep link; the MCP NEVER returns creator contact info (email/phone/DM) — the contact route is Creatorland itself.",
+    "query_market_intelligence: aggregates carry a `provenance` string and clear a minimum-N privacy floor; a below-floor slice returns a SUCCESSFUL `refused` envelope (no data), never a JSON-RPC error.",
+    "match_creators is free (0 credits); enrich_matches bills dynamically (3 credits per FUNDED match), so its fixed CREDIT_WEIGHTS entry is 0 — the real charge is recorded per-run, not from the static weight.",
+    "brand affiliations describe DEAL ACTIVITY (a creator has worked with a brand category), never INTENT or a current/exclusive relationship."
+  ]
+}
