@@ -43,6 +43,12 @@ cards, degrading to initials when it's `null`.
 > and the `verified_insights` marker are granted to the `internal` plan ONLY —
 > do not advertise them to customers or instruct users to pass them yet.
 
+Every result row also carries **`relative_fit`** — a within-result-set fit
+score where `1.0` is the strongest match in that response. It ranks candidates
+within a single search result set (use it to trim a weak tail); it is NOT
+comparable across separate searches or across a merged or unioned pool, so
+never rank a cross-search longlist by it.
+
 ### `get_creator_profile` — 1 credit
 Input: `{ identifier: { type, ... } }` — exactly one of five types:
 `social_handle`, `creatorland_user_id`, `source_user`, `email`, `phone`.
@@ -225,3 +231,27 @@ Credit packs are **volume-tiered**, not a single flat pack: base $25 / 1,000 = $
     the lookup IS the job. (The full profile fan-out already covers this in
     the shortlist skills; this convention makes it explicit for lighter,
     fewer-candidate asks too.)
+14. **Precision over recall when the deliverable is an OUTREACH list
+    (CRE-1056).** Recall and precision are different jobs, and outreach is a
+    precision job: a noisy off-topic tail that is harmless in a market-sizing
+    pool becomes wrong contacts the moment an automated outreach step messages
+    the list. When the output is a list someone (or an automation) will
+    actually contact, default to precision:
+    - **Search `tight`, gated hard.** Use `precision: "tight"` and pass the
+      hard-gate filters the brief supports — `platform`, `niche`,
+      `data_freshness_days`, `content_format`, and `audience_country`
+      (+ `min_audience_country_share`) — so the pool is constrained by the
+      requirements that matter, not left to semantic rank alone. A hard gate
+      adds no rank score, so confirm the constraint is genuinely required and
+      relax per convention 12 if a gate empties the pool.
+    - **Reserve `broad` + heavy `lookalike` unioning for market SIZING**, where
+      breadth is the product and no one gets contacted. Do not carry a
+      sizing-shaped search into an outreach deliverable.
+    - **Do not fan out dozens of `lookalike` calls to hit a volume target.**
+      Each `lookalike` hop drifts from the seed; stacking many of them to reach
+      a number unions in progressively off-topic creators. Widen deliberately —
+      one labeled broaden step per convention 8 — never by brute-force hops.
+    - **Trim the weak tail by `relative_fit`.** For an outreach cut, drop the
+      low-`relative_fit` rows (within-set fit, `1.0` = strongest) rather than
+      padding to a round number; disclose how many you trimmed and the cutoff.
+

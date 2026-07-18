@@ -20,6 +20,16 @@ prices, the nine conventions). This skill honors thrifty/thorough credit modes
 > That's `brief-to-shortlist`. This skill optimizes for recall and volume —
 > a working pool, not a finished deck.
 
+> **Precision & filters for outreach (convention 14).** This skill optimizes
+> recall on purpose — right for a working pool, wrong for a list you will
+> contact. The moment a cut of this longlist feeds an outreach step, switch to
+> precision: re-cast that cut at `precision: "tight"` with the hard-gate
+> filters the program supports (`platform`, `niche`, `data_freshness_days`,
+> `content_format`, `audience_country`), and trim the low-`relative_fit` tail
+> (within-set fit, `1.0` = strongest) rather than shipping the raw recall pool
+> to contacts. Keep `broad` for the sizing pool, not the outreach cut. Canon:
+> `${CLAUDE_PLUGIN_ROOT}/shared/conventions.md` convention 14.
+
 ## Inputs to collect
 
 - **The brief** (required) — any written format; normalization is your job.
