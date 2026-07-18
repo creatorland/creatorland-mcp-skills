@@ -22,6 +22,17 @@ prices, the nine conventions). This skill honors thrifty/thorough credit modes
 > `brief-to-shortlist`. Seed only, tiered by price → `lookalike-ladder`. The
 > intersection is the whole point here.
 
+> **Precision & filters for outreach (convention 14).** When this list will
+> feed an outreach step, default to precision over raw recall: search
+> `precision: "tight"` with the hard-gate filters the brief supports
+> (`platform`, `niche`, `data_freshness_days`, `content_format`,
+> `audience_country`), and reserve `broad` plus heavy `lookalike` unioning for
+> market sizing. Do not fan out dozens of `lookalike` calls to hit a volume
+> target (each hop drifts from the seed), and trim the weak tail by each
+> result row `relative_fit` (within-set fit, `1.0` = strongest) rather than
+> padding to a round number. Canon:
+> `${CLAUDE_PLUGIN_ROOT}/shared/conventions.md` convention 14.
+
 ## Inputs to collect
 
 - **The brief** (required) — any written format; normalization is your job.

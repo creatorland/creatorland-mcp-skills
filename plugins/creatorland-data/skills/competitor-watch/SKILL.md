@@ -30,6 +30,15 @@ prices, the nine conventions). This skill honors thrifty/thorough credit modes
 > search space over time, use `talent-scout` (the two compose: a finished
 > competitor-watch search can be saved as a scout profile).
 
+> **Precision & filters for outreach (convention 14).** Broad mapping is right
+> for the landscape layer here — but when the whitespace targets become a
+> slate someone will actually contact, cast that cut for precision:
+> `precision: "tight"` with the hard-gate filters (`platform`, `niche`,
+> `data_freshness_days`, `content_format`, `audience_country`), do not stack
+> dozens of `lookalike` hops to pad it (each hop drifts), and trim the weak
+> tail by `relative_fit` (within-set fit, `1.0` = strongest). Canon:
+> `${CLAUDE_PLUGIN_ROOT}/shared/conventions.md` convention 14.
+
 ## Inputs to collect
 
 - **Competitor brand names** (required, 1–5). Confirm spellings — affinity
