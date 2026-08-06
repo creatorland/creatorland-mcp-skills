@@ -10,7 +10,8 @@
         "creator_discovery",
         "market_intelligence",
         "discovery_brand_affiliations",
-        "member_content_stats"
+        "member_content_stats",
+        "first_party_insights"
       ]
     },
     {
@@ -22,9 +23,11 @@
         "discovery_brand_affiliations",
         "member_content_stats",
         "creator_connections",
+        "brand_connections",
         "avatar",
         "bulk_match_enrich",
-        "audience_reports"
+        "audience_reports",
+        "first_party_insights"
       ]
     },
     {
@@ -36,8 +39,10 @@
         "discovery_brand_affiliations",
         "member_content_stats",
         "creator_connections",
+        "brand_connections",
         "avatar",
-        "bulk_match_enrich"
+        "bulk_match_enrich",
+        "first_party_insights"
       ]
     },
     {
@@ -59,6 +64,7 @@
         "discovery_brand_affiliations",
         "member_content_stats",
         "creator_connections",
+        "brand_connections",
         "avatar",
         "bulk_match_enrich",
         "first_party_insights"
@@ -99,6 +105,11 @@
       "name": "request_creator_connection",
       "credits": 10,
       "entitlement": "creator_connections"
+    },
+    {
+      "name": "request_brand_connection",
+      "credits": 10,
+      "entitlement": "brand_connections"
     },
     {
       "name": "get_connection_status",
