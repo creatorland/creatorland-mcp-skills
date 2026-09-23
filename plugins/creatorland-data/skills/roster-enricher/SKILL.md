@@ -26,6 +26,10 @@ want fuller data on (1 credit per row, every row); use `bulk-match-enrich` when
 you first need to find which rows are creators at all (free match, then 3 credits
 per matched creator).
 
+**If the user wants the creators' business emails** (to contact them
+directly), that is `creator-email-lookup`, not this skill: roster enrichment
+never returns contact info.
+
 ## Inputs to collect
 
 - **The roster** (required) — CSV, spreadsheet, or pasted list. Identify the

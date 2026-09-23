@@ -47,6 +47,9 @@
     {"id": "n07", "message": "Can you review the contract clause about exclusivity in this MSA?", "expected": "none", "category": "near_miss_negative", "note": "brand/creator-adjacent legal, but no skill covers contract review"},
     {"id": "n08", "message": "How many credits will my next few searches cost?", "expected": "credit-budget-guardian", "category": "meta_positive", "note": "this DOES have a skill; not a negative"},
     {"id": "n09", "message": "Have I already searched this before? Don't make me pay twice.", "expected": "search-memo", "category": "meta_positive"},
-    {"id": "n10", "message": "Thanks, that's all for now!", "expected": "none", "category": "hard_negative"}
+    {"id": "n10", "message": "Thanks, that's all for now!", "expected": "none", "category": "hard_negative"},
+    {"id": "e01", "message": "Find emails for these creators: @kallaway, @zachking, @mkbhd.", "expected": "creator-email-lookup", "category": "discovery_positive"},
+    {"id": "e02", "message": "Can you get me the business contact email for this TikTok creator? tiktok.com/@charlidamelio", "expected": "creator-email-lookup", "category": "discovery_positive"},
+    {"id": "e03", "message": "Here is a CSV of 60 Instagram handles, I need a way to email each of them.", "expected": "creator-email-lookup", "category": "discovery_positive"}
   ]
 }

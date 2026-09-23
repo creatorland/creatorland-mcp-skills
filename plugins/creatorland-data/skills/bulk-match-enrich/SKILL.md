@@ -22,6 +22,9 @@ prices, the conventions). This skill honors thrifty/thorough credit modes
 human-confirms-the-spend contract below is non-negotiable: enrichment spends
 credits, so it never fires without an explicit human yes.
 
+**Need the matched creators' business emails?** Enrichment never returns contact
+info; hand the handles to `creator-email-lookup` (`get_creator_email`).
+
 ## Inputs to collect
 
 - **The list** (required) — a CSV, spreadsheet, or pasted block. Pull every

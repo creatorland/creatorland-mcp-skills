@@ -173,9 +173,11 @@ envelope, not an error.** Every connection-enabled skill MUST:
 - `list_connections` / `get_connection_status` return no contact info; neither
   may a skill infer or display one. A connection's existence + status is brand-safe;
   a creator's address is not.
-- Convention 7's "no contact info in any deliverable" still holds in full. The
-  outreach affordance is "Creatorland will reach them for you" — not "here's their
-  email."
+- Convention 7's "no contact info in any deliverable" still holds in full for
+  every outreach skill. The outreach affordance is "Creatorland will reach them
+  for you" — not "here's their email." (A user who explicitly wants creators'
+  business emails to contact them directly is a different job: route to
+  `creator-email-lookup` / `get_creator_email`, never to these tools.)
 
 ## Honesty rules specific to outreach
 

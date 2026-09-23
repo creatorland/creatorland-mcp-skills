@@ -109,6 +109,22 @@ needs the stable `source_user_id`; handle-only creators count as needs-fresh.
 Call this BEFORE `get_audience_report` on any roster so the human sees + confirms
 the spend.
 
+### `get_creator_email` — 10 credits per creator an email is found for (Starter/Pro)
+Business emails for creators by handle — the ONE tool that returns contact
+info (see convention 7). Input: `{ handles: [{ platform: "instagram"|"tiktok"|
+"youtube", handle }] (1–100; @handle, profile URL, or YouTube channel id),
+confirmed_credit_amount?: int }`. Call WITHOUT `confirmed_credit_amount` first:
+a free check returning `{ mode: "free_check", counts: { on_file, needs_lookup,
+invalid }, max_credits, results[] }` and NO emails. After the human approves,
+call again with the same handles and `confirmed_credit_amount` → `{ mode:
+"retrieved", counts, credits_charged, results[] }`; each result carries
+`platform, handle, status, emails[], matched_username, matched_followers,
+source`. Statuses: found, not_found, invalid, not_funded, not_processed,
+lookup_failed — only `found` is charged. Emails come from Creatorland's data
+provider (never name a vendor) and never from anything a member shared.
+Entitlement `creator_email` (starter/pro/pilot); other plans get a refused
+envelope with an `upgrade` block. Promotional credits can't fund it.
+
 ### Server-side prompts (use them — they're maintained with the server)
 `shortlist-from-brief`, `lookalike-search`, `fair-price-check`.
 
@@ -135,6 +151,7 @@ does NOT use these tools; outreach is an additive skill layer.
 | `enrich_matches` | 3 per matched creator |
 | `get_audience_report` (premium, pro) | 25 (cache hit = same, pure margin) |
 | `check_audience_coverage` (cost preflight) | free |
+| `get_creator_email` (Starter/Pro) | 10 per creator an email is found for (misses and the pre-check cost 0) |
 | `get_member_content_stats` | 1 |
 | `query_market_intelligence` | 5 |
 | profile fan-out of N | 1×N |
@@ -143,7 +160,7 @@ does NOT use these tools; outreach is an additive skill layer.
 | `get_connection_status` / `list_connections` | free |
 | reaching N creators | 10×N |
 
-Pro = $199/mo, 2,000 credits/mo (metered — credit packs cover overage). Free tier = all read tools, 250 credits/mo (then an upgrade wall).
+Pro = $199/mo, 2,000 credits/mo (metered — credit packs cover overage). Starter = $49/mo, 1,000 credits/mo, $49 per 1,000-credit pack for overage; includes outreach, avatars, bulk enrich, and creator email lookup, but not audience reports. Free tier = all read tools, 250 credits/mo (then an upgrade wall).
 
 Credit packs are **volume-tiered**, not a single flat pack: base $25 / 1,000 = $0.025/credit, dropping to ≈$0.02/credit at 10+ packs (~20% off). Higher-volume tiers exist; the base per-credit figure above still anchors estimates.
 
@@ -168,11 +185,14 @@ Credit packs are **volume-tiered**, not a single flat pack: base $25 / 1,000 = $
    a run will exceed ~30 credits and say so before fanning out.
 6. **End in a deliverable, not a chat answer.** Each skill defines its output
    artifact (markdown shortlist, one-page memo, runbook). Produce the artifact.
-7. **PII discipline — the deliverable invariant (CRE-582).** No contact
-   information appears in ANY deliverable, **regardless of source**. The MCP
-   never returns contact info — but your session may have other data sources
-   (other MCPs, uploaded files, web results) that do; the invariant still
-   holds. Scrub bio snippets of emails, phone numbers, and contact links.
+7. **PII discipline — the deliverable invariant (CRE-582, amended 2026-09-23).**
+   No contact information appears in ANY deliverable, **regardless of source**,
+   with ONE exception: business emails returned by `get_creator_email`, and only
+   in a skill whose job is email lookup (`creator-email-lookup`) after the
+   user approved the cost. Every other tool returns no contact info, and every
+   other skill keeps the invariant even if your session has other data sources
+   (other MCPs, uploaded files, web results) that carry it. Never guess or
+   construct an email. Scrub bio snippets of emails, phone numbers, and contact links.
    Never imply you have contact info or speculate about it. The contact
    affordance is a "Creatorland Member" flag + "Contact via Creatorland"
    (live now — Creatorland's matchmaker reaches the creator for you via the
