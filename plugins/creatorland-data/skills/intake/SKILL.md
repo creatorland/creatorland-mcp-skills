@@ -177,7 +177,7 @@ invoke it.
 - Creator → a brand: `pitch-a-brand` (pro) — pitch a named brand directly via `request_brand_connection`; free to enqueue, 10 credits only on an approved send, contact resolved server-side, oracle-safe, first pitch human-reviewed
 
 **Work my roster**
-- `roster-enricher` (upgrade a spreadsheet) · `casting-gap-analysis` (coverage holes) · `roster-microsite-builder` (shareable page) · `talent-scout` (standing what's-new watch)
+- `creator-email-lookup` (business emails for a list of handles; Starter/Pro) · `roster-enricher` (upgrade a spreadsheet) · `casting-gap-analysis` (coverage holes) · `roster-microsite-builder` (shareable page) · `talent-scout` (standing what's-new watch)
 
 **Run a campaign end-to-end**
 - `campaign-designer` or `campaign-package-builder` → cast (see Find creators) → `budget-allocator` → `campaign-monitor` → `wrap-report-skeleton` / `outreach-wrap-report`. RFP on the table → `rfp-response-builder`.

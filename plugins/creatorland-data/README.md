@@ -15,7 +15,7 @@ vellum exec my-assistant -- assistant plugins install creatorland
 vellum message my-assistant "run the onboarding tour"
 ```
 
-The first tool call triggers OAuth sign-in to your Creatorland Data account. After that, all 47 skills are available immediately via `skill_load`.
+The first tool call triggers OAuth sign-in to your Creatorland Data account. After that, all 52 skills are available immediately via `skill_load`.
 
 Other things to try:
 
@@ -60,7 +60,7 @@ url = "https://mcp.creatorland.com/mcp"
 | one-number-rate | "what should I pay for an IG reel in beauty?" | one number + band + provenance |
 | onboarding-tour | "run the onboarding tour" | guided first run of every tool |
 
-47 skills total. Browse the full list in [`skills/`](./skills/).
+52 skills total. Browse the full list in [`skills/`](./skills/).
 
 ## Structure
 
