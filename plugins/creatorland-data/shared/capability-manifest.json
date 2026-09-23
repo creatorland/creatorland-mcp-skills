@@ -180,7 +180,8 @@
   },
   "data_shape_notes": [
     "get_audience_report: `fake_follower_pct` = suspicious/bot followers; `mass_follower_pct` = real but low-value mass-following accounts. They are DISTINCT dimensions — never sum or conflate them.",
-    "search_creators / get_creator_profile: every creator carries a canonical `creatorland_url` deep link; the MCP NEVER returns creator contact info (email/phone/DM) — the contact route is Creatorland itself.",
+    "search_creators / get_creator_profile: every creator carries a canonical `creatorland_url` deep link and NO contact info (email/phone/DM). The only tool that returns contact info is get_creator_email.",
+    "get_creator_email: business emails from Creatorland's data provider. `emails` is a list (a creator and their manager/agency are common); check `matched_username` / `matched_followers` to confirm the right creator. Bills 10 credits per creator with an email delivered — the CREDIT_WEIGHTS entry is that per-creator price; misses and the free check cost 0.",
     "query_market_intelligence: aggregates carry a `provenance` string and clear a minimum-N privacy floor; a below-floor slice returns a SUCCESSFUL `refused` envelope (no data), never a JSON-RPC error.",
     "match_creators is free (0 credits); enrich_matches bills dynamically (3 credits per FUNDED match), so its fixed CREDIT_WEIGHTS entry is 0 — the real charge is recorded per-run, not from the static weight.",
     "brand affiliations describe DEAL ACTIVITY (a creator has worked with a brand category), never INTENT or a current/exclusive relationship."
